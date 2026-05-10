@@ -1,0 +1,25 @@
+# Outputs
+output/
+*.pdf
+!examples/*.pdf
+!docs/*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Misc
+*.log
+.cache/
+node_modules/

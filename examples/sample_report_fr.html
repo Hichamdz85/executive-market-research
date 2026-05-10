@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>HVAC Accessories — Algeria — Étude de marché</title>
+<style>
+/* ==========================================================================
+   Executive Market Research — KPMG/Big4 Style Sheet
+   Author: Khelifi Consulting
+   License: MIT
+   ========================================================================== */
+
+/* ---------- Color palette ---------- */
+:root {
+  --primary: #00338D;        /* KPMG navy */
+  --primary-dark: #001E4F;
+  --secondary: #0091DA;      /* Sky blue */
+  --accent: #005EB8;
+  --bg-grey: #F5F5F5;
+  --border-grey: #E0E0E0;
+  --text: #1A1A1A;
+  --text-muted: #6B6B6B;
+  --source-grey: #8C8C8C;
+  --white: #FFFFFF;
+  --chart-1: #00338D;
+  --chart-2: #0091DA;
+  --chart-3: #6BBE9F;
+  --chart-4: #F4B400;
+  --chart-5: #DB4437;
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--white);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 { color: var(--primary); font-weight: 700; }
+h1 { font-size: 32pt; line-height: 1.2; margin-bottom: 12pt; }
+h2 { font-size: 22pt; line-height: 1.25; margin-bottom: 10pt; }
+h3 { font-size: 14pt; margin-bottom: 8pt; }
+h4 { font-size: 11pt; margin-bottom: 6pt; }
+
+p { margin-bottom: 8pt; }
+strong { color: var(--primary-dark); font-weight: 700; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul, ol { margin: 0 0 10pt 18pt; }
+li { margin-bottom: 4pt; }
+
+/* ---------- Page system (A4 landscape) ---------- */
+.page {
+  width: 297mm;
+  height: 210mm;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+.page:last-child { page-break-after: auto; }
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+@media print {
+  body { margin: 0; }
+  .page { box-shadow: none; margin: 0; }
+}
+
+@media screen {
+  body { background: #ECECEC; padding: 20px; }
+  .page {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+  }
+}
+
+/* ---------- Page header (on content pages) ---------- */
+.page-header {
+  height: 18mm;
+  background: var(--bg-grey);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15mm;
+  border-bottom: 1px solid var(--border-grey);
+}
+.page-header h2 {
+  margin: 0;
+  font-size: 18pt;
+  color: var(--primary);
+}
+.page-header .logo {
+  height: 12mm;
+  max-width: 50mm;
+}
+
+/* ---------- Page footer ---------- */
+.page-footer {
+  position: absolute;
+  bottom: 5mm;
+  left: 15mm;
+  right: 15mm;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-grey);
+  padding-top: 3mm;
+}
+
+/* ---------- Content area ---------- */
+.content {
+  padding: 8mm 15mm 12mm 15mm;
+  height: calc(210mm - 18mm - 5mm);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   PAGE: Cover
+   ========================================================================== */
+.cover {
+  background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 60%);
+  padding: 0;
+}
+.cover-hero {
+  width: 100%;
+  height: 100mm;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.cover-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, var(--white) 100%);
+}
+.cover-body {
+  padding: 18mm 25mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cover-text { flex: 1; }
+.cover-text h1 {
+  font-size: 30pt;
+  margin-bottom: 6mm;
+  max-width: 180mm;
+}
+.cover-text .subtitle {
+  font-size: 14pt;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 4mm;
+}
+.cover-text .country-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12pt;
+  color: var(--text-muted);
+  margin-bottom: 8mm;
+}
+.cover-text .country-tag .flag {
+  width: 28px; height: 20px;
+  border: 1px solid var(--border-grey);
+  border-radius: 2px;
+}
+.cover-text .date {
+  font-size: 10pt;
+  color: var(--text-muted);
+}
+.cover-logo { text-align: right; }
+.cover-logo img { max-height: 28mm; max-width: 60mm; }
+
+/* ==========================================================================
+   PAGE: Table of Contents
+   ========================================================================== */
+.toc-list { margin-top: 10mm; }
+.toc-row {
+  display: flex;
+  align-items: center;
+  padding: 5mm 0;
+  border-bottom: 1px solid var(--border-grey);
+}
+.toc-roman {
+  width: 30mm;
+  background: var(--primary);
+  color: var(--white);
+  padding: 4mm 6mm;
+  font-weight: 700;
+  font-size: 12pt;
+  text-align: center;
+  margin-right: 8mm;
+  border-radius: 2px;
+}
+.toc-title { flex: 1; font-size: 12pt; color: var(--text); }
+.toc-page {
+  font-size: 12pt;
+  color: var(--primary);
+  font-weight: 700;
+  width: 20mm;
+  text-align: right;
+}
+
+/* ==========================================================================
+   PAGE: Section divider
+   ========================================================================== */
+.divider {
+  display: flex;
+  height: 100%;
+  padding: 0;
+}
+.divider-image {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+}
+.divider-title {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30mm;
+}
+.divider-title h1 {
+  font-size: 36pt;
+  color: var(--primary);
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ==========================================================================
+   PAGE: KPI Dashboard (used for country macro section)
+   ========================================================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6mm;
+  margin: 6mm 0;
+}
+.kpi-card {
+  background: var(--bg-grey);
+  border-left: 4px solid var(--primary);
+  padding: 6mm;
+  border-radius: 2px;
+}
+.kpi-card .label {
+  font-size: 9pt;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3mm;
+}
+.kpi-card .value {
+  font-size: 22pt;
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2mm;
+}
+.kpi-card .delta {
+  font-size: 9pt;
+  color: var(--text-muted);
+}
+.kpi-card .delta.up { color: #2E7D32; }
+.kpi-card .delta.down { color: #C62828; }
+
+.country-banner {
+  display: flex;
+  align-items: center;
+  gap: 10mm;
+  padding: 8mm 0;
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: 8mm;
+}
+.country-banner .flag-large {
+  width: 60mm;
+  height: 40mm;
+  object-fit: cover;
+  border: 1px solid var(--border-grey);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.country-banner .country-info h2 {
+  margin: 0 0 3mm 0;
+  font-size: 28pt;
+}
+.country-banner .country-info p {
+  font-size: 11pt;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   PAGE: Executive summary table (icon-based segments)
+   ========================================================================== */
+.exec-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4mm;
+}
+.exec-summary-table thead th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 4mm;
+  text-align: left;
+  font-size: 11pt;
+}
+.exec-summary-table tbody tr {
+  background: var(--bg-grey);
+  border-bottom: 4px solid var(--white);
+}
+.exec-summary-table tbody td {
+  padding: 5mm;
+  vertical-align: top;
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+.exec-summary-table .seg-icon-cell {
+  width: 28mm;
+  text-align: center;
+}
+.exec-summary-table .seg-icon-cell img,
+.exec-summary-table .seg-icon-cell svg {
+  width: 16mm;
+  height: 16mm;
+  display: block;
+  margin: 0 auto 2mm auto;
+}
+.exec-summary-table .seg-icon-cell .seg-label {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Charts & data containers
+   ========================================================================== */
+.chart-finding-title {
+  font-size: 16pt;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 6mm;
+  background: var(--bg-grey);
+  padding: 4mm 6mm;
+  border-left: 4px solid var(--primary);
+}
+.chart-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+  margin: 4mm 0;
+}
+.chart-container {
+  background: var(--white);
+  padding: 4mm;
+}
+.chart-container h4 {
+  text-align: center;
+  font-size: 11pt;
+  color: var(--primary);
+  margin-bottom: 4mm;
+}
+.chart-canvas {
+  width: 100%;
+  height: 60mm;
+}
+.chart-source {
+  font-size: 8pt;
+  color: var(--source-grey);
+  margin-top: 3mm;
+  font-style: italic;
+}
+.insights-box {
+  background: var(--bg-grey);
+  padding: 4mm 6mm;
+  margin-top: 4mm;
+  border-radius: 2px;
+}
+.insights-box ul { margin: 0; padding-left: 14pt; }
+.insights-box li {
+  font-size: 9.5pt;
+  margin-bottom: 2mm;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Tables (general data tables)
+   ========================================================================== */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 4mm 0;
+}
+.data-table thead th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 3mm 4mm;
+  text-align: left;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.data-table tbody td {
+  padding: 3mm 4mm;
+  border-bottom: 1px solid var(--border-grey);
+}
+.data-table tbody tr:nth-child(even) { background: var(--bg-grey); }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ==========================================================================
+   SWOT matrix
+   ========================================================================== */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+  margin-top: 4mm;
+}
+.swot-cell {
+  padding: 6mm;
+  border-radius: 2px;
+  min-height: 60mm;
+}
+.swot-cell h4 {
+  font-size: 13pt;
+  margin-bottom: 4mm;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.swot-cell ul { color: var(--white); }
+.swot-cell li { font-size: 9.5pt; line-height: 1.5; }
+.swot-cell.strengths { background: #2E7D32; }
+.swot-cell.weaknesses { background: #C62828; }
+.swot-cell.opportunities { background: var(--primary); }
+.swot-cell.threats { background: #E65100; }
+
+/* ==========================================================================
+   Recommendations table
+   ========================================================================== */
+.recommendations-table .priority-high { color: #C62828; font-weight: 700; }
+.recommendations-table .priority-med { color: #E65100; font-weight: 700; }
+.recommendations-table .priority-low { color: #2E7D32; font-weight: 700; }
+
+/* ==========================================================================
+   RTL support (Arabic)
+   ========================================================================== */
+[dir="rtl"] body {
+  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', Arial, sans-serif;
+}
+[dir="rtl"] .page-header { flex-direction: row-reverse; }
+[dir="rtl"] .toc-roman { margin-right: 0; margin-left: 8mm; }
+[dir="rtl"] .toc-page { text-align: left; }
+[dir="rtl"] .divider { flex-direction: row-reverse; }
+[dir="rtl"] .divider-title h1 { text-align: right; }
+[dir="rtl"] .kpi-card { border-left: none; border-right: 4px solid var(--primary); }
+[dir="rtl"] .chart-finding-title { border-left: none; border-right: 4px solid var(--primary); }
+[dir="rtl"] .data-table thead th { text-align: right; }
+[dir="rtl"] .data-table .num { text-align: left; }
+
+/* ==========================================================================
+   Utility classes
+   ========================================================================== */
+.text-primary { color: var(--primary); }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.bg-grey { background: var(--bg-grey); }
+.mt-2 { margin-top: 4mm; }
+.mt-4 { margin-top: 8mm; }
+.mb-2 { margin-bottom: 4mm; }
+.section-intro {
+  font-size: 11pt;
+  color: var(--text);
+  margin-bottom: 6mm;
+  line-height: 1.6;
+  max-width: 220mm;
+}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="cover-hero" style="background-image:url('https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=1600');"></div>
+  <div class="cover-body">
+    <div class="cover-text">
+      <h1>Étude de marché : HVAC Accessories en Algeria</h1>
+      <div class="subtitle">Rapport d'étude de marché exécutive</div>
+      <div class="country-tag">
+        <img class="flag" src="https://flagcdn.com/dz.svg" alt="Algeria flag">
+        <span>Algeria</span>
+      </div>
+      <div class="date">May 2026</div>
+    </div>
+    <div class="cover-logo">
+      <img src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt="Khelifi Consulting">
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 2: TABLE OF CONTENTS ===== -->
+<div class="page">
+  <div class="page-header">
+    <h2>Sommaire</h2>
+    <img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt="">
+  </div>
+  <div class="content">
+    <div class="toc-list">
+      <div class="toc-row"><div class="toc-roman">I</div><div class="toc-title">Méthodologie et périmètre</div><div class="toc-page">03</div></div>
+      <div class="toc-row"><div class="toc-roman">II</div><div class="toc-title">Vue macroéconomique : Algeria</div><div class="toc-page">06</div></div>
+      <div class="toc-row"><div class="toc-roman">III</div><div class="toc-title">Résumé exécutif</div><div class="toc-page">10</div></div>
+      <div class="toc-row"><div class="toc-roman">IV</div><div class="toc-title">Analyse du marché</div><div class="toc-page">14</div></div>
+      <div class="toc-row"><div class="toc-roman">V</div><div class="toc-title">Caractéristiques des importations</div><div class="toc-page">19</div></div>
+      <div class="toc-row"><div class="toc-roman">VI</div><div class="toc-title">Aspects réglementaires</div><div class="toc-page">25</div></div>
+      <div class="toc-row"><div class="toc-roman">VII</div><div class="toc-title">Paysage concurrentiel</div><div class="toc-page">31</div></div>
+      <div class="toc-row"><div class="toc-roman">VIII</div><div class="toc-title">Conclusion et recommandations</div><div class="toc-page">36</div></div>
+      <div class="toc-row"><div class="toc-roman">IX</div><div class="toc-title">Annexes</div><div class="toc-page">40</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>May 2026</span>
+    <span>Étude de marché : HVAC Accessories en Algeria</span>
+    <span>2</span>
+  </div>
+</div>
+
+<!-- ===== SECTION I: METHODOLOGY ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>I. Méthodologie<br>et périmètre</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Méthodologie</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <p class="section-intro">This report assesses the market opportunity for HVAC accessories in Algeria. It is intended for exporters, importers, and policymakers seeking a fact-based view of demand, supply, regulatory environment, and competitive intensity.</p>
+    <h3>Objectifs de la mission</h3>
+    <ul><li>Quantify the addressable market for HVAC accessories in Algeria (2019–2028)</li>
+<li>Map the regulatory environment, including duties, certifications, and FTAs</li>
+<li>Identify key importers, distributors, and end-use sectors</li>
+<li>Provide actionable recommendations for market entry</li></ul>
+    <h3>Périmètre des travaux</h3>
+    <ul><li>Geography: Algeria (national level, with notes on regional variation where material)</li>
+<li>Product: HS codes 8415.82, 8415.83, 8415.90, 8421.39</li>
+<li>Time horizon: 5-year historical + 5-year forecast</li>
+<li>Excluded: residential window units; covered separately in adjacent studies</li></ul>
+    <h3>Approche de recherche</h3>
+    <p>Triangulated secondary research combining UN Comtrade, World Bank, IMF, EIU, and Algerian government sources, cross-checked against industry association data and trade press. Where direct data was unavailable, indirect indicators and proxy series were used with disclosed assumptions.</p>
+    <h3>Sources de données</h3>
+    <p>Primary data sources include UN Comtrade (HS-level trade flows), World Bank Open Data (macro), IMF World Economic Outlook (forecasts), Office National des Statistiques (Algeria), Banque d'Algérie, and Direction Générale des Douanes. See Appendix for full bibliography.</p>
+    <h3>Limites</h3>
+    <p>Domestic production data for HVAC accessories is not separately published by Algerian statistics; estimates are derived from apparent consumption (imports + estimated production - exports) and triangulated with industry-association reports. Confidence: medium.</p>
+  </div>
+  <div class="page-footer">
+    <span>May 2026</span>
+    <span>Étude de marché : HVAC Accessories en Algeria</span>
+    <span>3</span>
+  </div>
+</div>
+
+<!-- ===== SECTION II: COUNTRY MACRO ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>II. Algeria<br>en bref</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Algeria — Aperçu du pays</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <div class="country-banner">
+      <img class="flag-large" src="https://flagcdn.com/dz.svg" alt="Algeria flag">
+      <div class="country-info">
+        <h2>Algeria</h2>
+        <p>Africa's largest country by area; a hydrocarbon-driven economy diversifying into manufacturing and infrastructure.</p>
+      </div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="label">Population</div><div class="value">44.7M</div><div class="delta">+1.6% YoY</div></div>
+      <div class="kpi-card"><div class="label">PIB nominal</div><div class="value">USD 240B</div><div class="delta">2024</div></div>
+      <div class="kpi-card"><div class="label">PIB par habitant</div><div class="value">USD 5,370</div><div class="delta">Lower-middle income</div></div>
+      <div class="kpi-card"><div class="label">Inflation (IPC)</div><div class="value">9.3%</div><div class="delta">2024 CPI YoY</div></div>
+      <div class="kpi-card"><div class="label">Taux de change USD</div><div class="value">DZD 134/USD</div><div class="delta">May 2026</div></div>
+      <div class="kpi-card"><div class="label">Balance commerciale</div><div class="value">+USD 18B</div><div class="delta">2024</div></div>
+      <div class="kpi-card"><div class="label">Notation souveraine</div><div class="value">B-</div><div class="delta">Fitch, May 2025</div></div>
+      <div class="kpi-card"><div class="label">Facilité de faire des affaires</div><div class="value">157/190</div><div class="delta">World Bank EoDB 2020</div></div>
+    </div>
+    <p class="chart-source">Source: World Bank, IMF, Khelifi Consulting Analysis</p>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>7</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Algeria — Tendances macroéconomiques</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <div class="chart-finding-title">Algeria's economy contracted between 2014–2016 with the oil-price slump; recovery has been steady since 2021.</div>
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>PIB nominal (USD bn)</h4>
+        <canvas id="chart-gdp" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: IMF World Economic Outlook</div>
+      </div>
+      <div class="chart-container">
+        <h4>Flux commerciaux (M USD)</h4>
+        <canvas id="chart-trade" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade</div>
+      </div>
+    </div>
+    <div class="insights-box">
+      <ul><li>Algeria's economy is dominated by hydrocarbons (~30% of GDP, 90% of export revenue). Market for industrial goods is highly correlated with oil revenues.</li>
+<li>Government's diversification strategy (Plan d'Action 2020–2024) prioritises construction, agriculture, and manufacturing — direct tailwinds for HVAC accessories.</li>
+<li>FX repatriation is regulated; advance payments to foreign suppliers require Letter of Credit issued by an Algerian bank.</li></ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>8</span></div>
+</div>
+
+<!-- ===== SECTION III: EXECUTIVE SUMMARY ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>III. Résumé<br>exécutif</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Résumé exécutif</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <table class="exec-summary-table">
+      <thead><tr><th>Segment</th><th>Observations clés</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-product.svg" alt="">
+            <div class="seg-label">Définition du produit</div>
+          </td>
+          <td>HVAC accessories include grilles, diffusers, dampers, louvers, sound attenuators, and air terminal devices. HS codes 8415.82, 8415.83, 8415.90, 8421.39 capture the bulk of trade. Demand is driven by construction, real estate, healthcare, and industrial cooling.</td>
+        </tr>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-demand.svg" alt="">
+            <div class="seg-label">Demande</div>
+          </td>
+          <td>The Algerian market for HVAC accessories grew at a CAGR of ~5% from 2019 to 2024, reaching ~92,000 tons in 2024. Forecast CAGR of 1.8% through 2028, supported by housing programmes (1M-units plan) and metro/tramway projects.</td>
+        </tr>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-supply.svg" alt="">
+            <div class="seg-label">Offre</div>
+          </td>
+          <td>Imports cover ~12% of consumption; the balance is met by domestic producers leveraging local steel and aluminium. Top exporting partners: China (38%), Italy (15%), Türkiye (12%), France (10%), Germany (8%).</td>
+        </tr>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-target.svg" alt="">
+            <div class="seg-label">Attractivité</div>
+          </td>
+          <td>Export attractiveness: LOW–MODERATE. Entry barriers include strong domestic manufacturing, FX restrictions, and quotas on select HS codes. Premium segments (smart dampers, low-noise diffusers) offer the best opportunity for differentiation.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>11</span></div>
+</div>
+
+<!-- ===== SECTION IV: MARKET REVIEW ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>IV. Analyse<br>du marché</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Taille et croissance du marché</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <div class="chart-finding-title">HVAC accessories market in Algeria reached USD 233M (2024); forecast USD 280M by 2028.</div>
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>Taille du marché en valeur (M USD)</h4>
+        <canvas id="chart-market-value" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade, ONS, KPMG analysis adapted</div>
+      </div>
+      <div class="chart-container">
+        <h4>Taille du marché en volume (milliers de tonnes)</h4>
+        <canvas id="chart-market-volume" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade, ONS, KPMG analysis adapted</div>
+      </div>
+    </div>
+    <div class="insights-box">
+      <ul><li>Real estate and infrastructure account for ~70% of demand; industrial users (food processing, pharma) ~20%; remainder is replacement/aftermarket.</li>
+<li>Government housing programme (Logement Promotionnel Aidé) targets ~200,000 units annually, sustaining base demand.</li>
+<li>Climate (hot summers, mild winters) means cooling-only systems dominate; heating accessories play a smaller role outside Tell Atlas region.</li></ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>15</span></div>
+</div>
+
+<!-- ===== SECTION V: IMPORT CHARACTERISTICS ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>V. Caractéristiques<br>des importations</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Tendances d'importation en Algeria</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <div class="chart-finding-title">Imports of HVAC accessories in Algeria grew at a CAGR of 2.8% from 2019 to 2024, reaching USD 130M.</div>
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>Importations en valeur (M USD)</h4>
+        <canvas id="chart-import-value" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade</div>
+      </div>
+      <div class="chart-container">
+        <h4>Importations en volume (milliers de tonnes)</h4>
+        <canvas id="chart-import-volume" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade</div>
+      </div>
+    </div>
+    <div class="insights-box">
+      <ul><li>Imports remained steady at an average of 9,200 tons over 2019–2024 despite headline growth in value (price/mix effect).</li>
+<li>Share of imports met by top-5 origins is 83%, indicating a concentrated supplier base.</li>
+<li>Imports are subject to a 30% MFN tariff plus 19% VAT; GAFTA partners receive preferential 0% treatment for eligible HS codes.</li></ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>20</span></div>
+</div>
+
+<!-- ===== SECTION VI: REGULATORY ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>VI. Aspects<br>réglementaires</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Tarifs, taxes et accords commerciaux</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <table class="data-table">
+      <thead><tr><th>Élément</th><th>Détail</th><th>Source</th></tr></thead>
+      <tbody><tr><td>MFN tariff</td><td>30% on HS 8415.90</td><td>Direction Générale des Douanes</td></tr>
+<tr><td>VAT</td><td>19% on landed cost</td><td>Code des Impôts Indirects</td></tr>
+<tr><td>GAFTA preference</td><td>0% for Arab League members on most HS codes</td><td>Arab League Trade Council</td></tr>
+<tr><td>Standards</td><td>ISO 9001 + Algerian conformity certification (IANOR)</td><td>IANOR.org.dz</td></tr>
+<tr><td>Import licence</td><td>Required for HS codes >USD 100K annual flows</td><td>Ministry of Commerce</td></tr>
+<tr><td>Payment terms</td><td>Letter of Credit only; advance payments restricted</td><td>Banque d'Algérie circular 03-2017</td></tr>
+<tr><td>Labelling</td><td>Arabic + French on product labels and manuals</td><td>Decree 13-378</td></tr></tbody>
+    </table>
+    <div class="insights-box mt-4">
+      <ul><li>FX restrictions are the most material regulatory friction; exporters need an Algerian bank counterpart.</li>
+<li>GAFTA preferences neutralise the 30% tariff for Qatari, Saudi, UAE, Egyptian exporters — a strong incentive for these origins.</li></ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>26</span></div>
+</div>
+
+<!-- ===== SECTION VII: COMPETITIVE LANDSCAPE ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>VII. Paysage<br>concurrentiel</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Acteurs clés et parts de marché</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>Parts de marché estimées par acteur</h4>
+        <canvas id="chart-market-share" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: Industry interviews; KPMG analysis adapted</div>
+      </div>
+      <div>
+        <table class="data-table">
+          <thead><tr><th>Acteur</th><th>Siège</th><th>Niveau</th></tr></thead>
+          <tbody><tr><td>Condor Electronics</td><td>Algeria (Bordj Bou Arréridj)</td><td>Domestic — mass</td></tr>
+<tr><td>ENIEM</td><td>Algeria (Tizi Ouzou)</td><td>Domestic — mid</td></tr>
+<tr><td>Daikin (importer)</td><td>Japan</td><td>Premium</td></tr>
+<tr><td>Carrier (importer)</td><td>USA</td><td>Premium</td></tr>
+<tr><td>Midea (importer)</td><td>China</td><td>Mass</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="insights-box mt-4">
+      <ul><li>Domestic players hold ~75% of mass-market share; international brands dominate premium segment.</li>
+<li>No single international entrant has captured >10% share — fragmented opportunity for niche differentiation.</li></ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>32</span></div>
+</div>
+
+<!-- ===== SECTION VIII: CONCLUSION ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>VIII. Conclusion<br>et recommandations</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Analyse SWOT</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <div class="swot-grid">
+      <div class="swot-cell strengths">
+        <h4>Forces</h4>
+        <ul><li>Large addressable market (~USD 230M)</li>
+<li>Government infrastructure programmes drive baseline demand</li>
+<li>GAFTA preference eliminates 30% tariff for Arab exporters</li></ul>
+      </div>
+      <div class="swot-cell weaknesses">
+        <h4>Faiblesses</h4>
+        <ul><li>Strong domestic manufacturing base (88% of consumption)</li>
+<li>FX restrictions complicate payment flows</li>
+<li>Limited public data on segment-level demand</li></ul>
+      </div>
+      <div class="swot-cell opportunities">
+        <h4>Opportunités</h4>
+        <ul><li>Premium / smart HVAC accessories underpenetrated</li>
+<li>Healthcare and pharma sector expansion (post-COVID)</li>
+<li>Tramway / metro projects in Algiers, Oran, Constantine</li></ul>
+      </div>
+      <div class="swot-cell threats">
+        <h4>Menaces</h4>
+        <ul><li>Oil-price volatility — direct macro hit to construction</li>
+<li>Quotas on select HS codes can be tightened with little notice</li>
+<li>Currency depreciation eroding USD-denominated margins</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>37</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Recommandations stratégiques</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <table class="data-table recommendations-table">
+      <thead><tr><th>#</th><th>Recommandation</th><th>Priorité</th><th>Échéance</th><th>Impact attendu</th></tr></thead>
+      <tbody><tr><td>1</td><td>Target premium segment with smart/low-noise products</td><td class='priority-high'>High</td><td>0–6 months</td><td>Differentiation from local mass producers; 15–20% price premium achievable</td></tr>
+<tr><td>2</td><td>Establish partnership with an Algerian importer with banking relationships</td><td class='priority-high'>High</td><td>0–3 months</td><td>Mitigates FX/payment risk; shortens cycle to first orders</td></tr>
+<tr><td>3</td><td>Pursue IANOR certification before market entry</td><td class='priority-med'>Medium</td><td>3–6 months</td><td>Required for public tenders; unlocks government-sector demand</td></tr>
+<tr><td>4</td><td>Bid into housing-programme tenders via local consortium</td><td class='priority-med'>Medium</td><td>6–12 months</td><td>Volume opportunity (200K units/yr); margins compressed</td></tr>
+<tr><td>5</td><td>Monitor quarterly the published 'negative list' for HS code coverage</td><td class='priority-low'>Low</td><td>Ongoing</td><td>Avoids surprises from regulatory tightening</td></tr></tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>38</span></div>
+</div>
+
+<!-- ===== SECTION IX: APPENDIX ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1600');"></div>
+  <div class="divider-title"><h1>IX. Annexes</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Sources et notes méthodologiques</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="content">
+    <h3>Sources principales de données</h3>
+    <ul><li>UN Comtrade — https://comtradeplus.un.org/</li>
+<li>World Bank Open Data — https://data.worldbank.org/country/algeria</li>
+<li>IMF World Economic Outlook — https://www.imf.org/en/Publications/WEO</li>
+<li>Office National des Statistiques (ONS) — https://www.ons.dz/</li>
+<li>Banque d'Algérie — https://www.bank-of-algeria.dz/</li>
+<li>Direction Générale des Douanes — https://www.douane.gov.dz/</li></ul>
+    <h3>Codes SH utilisés dans cette analyse</h3>
+    <ul><li>8415.82 — Air conditioning machines, other than incorporating refrigerating unit</li>
+<li>8415.83 — Air conditioning machines, not incorporating refrigerating unit</li>
+<li>8415.90 — Parts of air conditioning machines</li>
+<li>8421.39 — Filtering or purifying machinery, for gases (other than air)</li></ul>
+    <h3>Glossaire</h3>
+    <ul><li>CAGR — Compound Annual Growth Rate</li>
+<li>FTA — Free Trade Agreement</li>
+<li>GAFTA — Greater Arab Free Trade Area</li>
+<li>HS code — Harmonised System (WCO product classification)</li>
+<li>MFN — Most Favoured Nation tariff (WTO baseline)</li>
+<li>TAM — Total Addressable Market</li></ul>
+  </div>
+  <div class="page-footer"><span>May 2026</span><span>Étude de marché : HVAC Accessories en Algeria</span><span>41</span></div>
+</div>
+
+<!-- ===== CHART SCRIPTS ===== -->
+<script>
+const chartTheme = {
+  primary: '#00338D', secondary: '#0091DA', accent: '#005EB8',
+  c3: '#6BBE9F', c4: '#F4B400', c5: '#DB4437'
+};
+Chart.defaults.font.family = "'Helvetica Neue', Arial, sans-serif";
+Chart.defaults.color = '#1A1A1A';
+
+// All chart configs are injected by the generator script via 
+new Chart(document.getElementById('chart-gdp'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Nominal GDP (USD bn)',
+      data: [171, 145, 167, 192, 222, 240],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-trade'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [
+      { label: 'Imports', data: [41, 33, 37, 41, 44, 47], backgroundColor: chartTheme.primary },
+      { label: 'Exports', data: [35, 23, 35, 60, 50, 58], backgroundColor: chartTheme.secondary }
+    ]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    scales:{ y:{ beginAtZero:true } } }
+});
+
+
+new Chart(document.getElementById('chart-market-value'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Value (USD mn)',
+      data: [200, 145, 168, 195, 215, 233],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-market-volume'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Volume ('000 tons)',
+      data: [69, 60, 75, 82, 87, 92],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-import-value'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Import value (USD mn)',
+      data: [110, 78, 95, 115, 128, 130],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-import-volume'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Import volume ('000 tons)',
+      data: [9.5, 7.7, 9.6, 10.3, 9.8, 10.0],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-market-share'), {
+  type: 'doughnut',
+  data: {
+    labels: ["Condor", "ENIEM", "Daikin", "Carrier", "Midea", "Others"],
+    datasets: [{
+      label: 'Market share',
+      data: [32, 22, 12, 9, 8, 17],
+      backgroundColor: [chartTheme.primary, chartTheme.secondary, chartTheme.accent, chartTheme.c3, chartTheme.c4, chartTheme.c5],
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-gdp'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Nominal GDP (USD bn)',
+      data: [171, 145, 167, 192, 222, 240],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-trade'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [
+      { label: 'Imports', data: [41, 33, 37, 41, 44, 47], backgroundColor: chartTheme.primary },
+      { label: 'Exports', data: [35, 23, 35, 60, 50, 58], backgroundColor: chartTheme.secondary }
+    ]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    scales:{ y:{ beginAtZero:true } } }
+});
+
+
+new Chart(document.getElementById('chart-market-value'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Value (USD mn)',
+      data: [200, 145, 168, 195, 215, 233],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-market-volume'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Volume ('000 tons)',
+      data: [69, 60, 75, 82, 87, 92],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-import-value'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Import value (USD mn)',
+      data: [110, 78, 95, 115, 128, 130],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-import-volume'), {
+  type: 'bar',
+  data: {
+    labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
+    datasets: [{
+      label: 'Import volume ('000 tons)',
+      data: [9.5, 7.7, 9.6, 10.3, 9.8, 10.0],
+      backgroundColor: chartTheme.primary,
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+
+new Chart(document.getElementById('chart-market-share'), {
+  type: 'doughnut',
+  data: {
+    labels: ["Condor", "ENIEM", "Daikin", "Carrier", "Midea", "Others"],
+    datasets: [{
+      label: 'Market share',
+      data: [32, 22, 12, 9, 8, 17],
+      backgroundColor: [chartTheme.primary, chartTheme.secondary, chartTheme.accent, chartTheme.c3, chartTheme.c4, chartTheme.c5],
+      borderColor: chartTheme.primary,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: { display: true }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#E0E0E0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+</script>
+
+
+<!-- ===== BACK COVER: AUTHOR ===== -->
+<div class="page" style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#00338D 0%,#001E4F 100%);color:white;padding:30mm;text-align:center;">
+  <div style="font-size:11pt;text-transform:uppercase;letter-spacing:0.3em;opacity:0.7;margin-bottom:6mm;">À propos de l'auteur</div>
+  <div style="font-size:42pt;font-weight:800;letter-spacing:-0.02em;margin-bottom:6mm;">KHELIFI CONSULTING</div>
+  <div style="height:2px;width:60mm;background:rgba(255,255,255,0.3);margin-bottom:10mm;"></div>
+  <div style="font-size:13pt;line-height:1.7;max-width:200mm;color:rgba(255,255,255,0.9);"><strong>KHELIFI CONSULTING</strong> — Conseil stratégique et études marketing pour l'Algérie et la région MENA. Nous transformons les questions de marché en réponses prêtes pour le conseil d'administration. Pour des missions sur mesure : <a href='mailto:info@khelificonsulting.com'>info@khelificonsulting.com</a> · <a href='https://khelificonsulting.com'>khelificonsulting.com</a></div>
+  <div style="margin-top:20mm;font-size:9pt;opacity:0.5;">Rapport généré avec la skill Executive Market Research — open source, licence MIT.</div>
+</div>
+
+</body>
+</html>

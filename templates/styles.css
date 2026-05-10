@@ -1,0 +1,486 @@
+/* ==========================================================================
+   Executive Market Research — KPMG/Big4 Style Sheet
+   Author: Khelifi Consulting
+   License: MIT
+   ========================================================================== */
+
+/* ---------- Color palette ---------- */
+:root {
+  --primary: #00338D;        /* KPMG navy */
+  --primary-dark: #001E4F;
+  --secondary: #0091DA;      /* Sky blue */
+  --accent: #005EB8;
+  --bg-grey: #F5F5F5;
+  --border-grey: #E0E0E0;
+  --text: #1A1A1A;
+  --text-muted: #6B6B6B;
+  --source-grey: #8C8C8C;
+  --white: #FFFFFF;
+  --chart-1: #00338D;
+  --chart-2: #0091DA;
+  --chart-3: #6BBE9F;
+  --chart-4: #F4B400;
+  --chart-5: #DB4437;
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--white);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 { color: var(--primary); font-weight: 700; }
+h1 { font-size: 32pt; line-height: 1.2; margin-bottom: 12pt; }
+h2 { font-size: 22pt; line-height: 1.25; margin-bottom: 10pt; }
+h3 { font-size: 14pt; margin-bottom: 8pt; }
+h4 { font-size: 11pt; margin-bottom: 6pt; }
+
+p { margin-bottom: 8pt; }
+strong { color: var(--primary-dark); font-weight: 700; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul, ol { margin: 0 0 10pt 18pt; }
+li { margin-bottom: 4pt; }
+
+/* ---------- Page system (A4 landscape) ---------- */
+.page {
+  width: 297mm;
+  height: 210mm;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+.page:last-child { page-break-after: auto; }
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+@media print {
+  body { margin: 0; }
+  .page { box-shadow: none; margin: 0; }
+}
+
+@media screen {
+  body { background: #ECECEC; padding: 20px; }
+  .page {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+  }
+}
+
+/* ---------- Page header (on content pages) ---------- */
+.page-header {
+  height: 18mm;
+  background: var(--bg-grey);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15mm;
+  border-bottom: 1px solid var(--border-grey);
+}
+.page-header h2 {
+  margin: 0;
+  font-size: 18pt;
+  color: var(--primary);
+}
+.page-header .logo {
+  height: 12mm;
+  max-width: 50mm;
+}
+
+/* ---------- Page footer ---------- */
+.page-footer {
+  position: absolute;
+  bottom: 5mm;
+  left: 15mm;
+  right: 15mm;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-grey);
+  padding-top: 3mm;
+}
+
+/* ---------- Content area ---------- */
+.content {
+  padding: 8mm 15mm 12mm 15mm;
+  height: calc(210mm - 18mm - 5mm);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   PAGE: Cover
+   ========================================================================== */
+.cover {
+  background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 60%);
+  padding: 0;
+}
+.cover-hero {
+  width: 100%;
+  height: 100mm;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.cover-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, var(--white) 100%);
+}
+.cover-body {
+  padding: 18mm 25mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cover-text { flex: 1; }
+.cover-text h1 {
+  font-size: 30pt;
+  margin-bottom: 6mm;
+  max-width: 180mm;
+}
+.cover-text .subtitle {
+  font-size: 14pt;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 4mm;
+}
+.cover-text .country-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12pt;
+  color: var(--text-muted);
+  margin-bottom: 8mm;
+}
+.cover-text .country-tag .flag {
+  width: 28px; height: 20px;
+  border: 1px solid var(--border-grey);
+  border-radius: 2px;
+}
+.cover-text .date {
+  font-size: 10pt;
+  color: var(--text-muted);
+}
+.cover-logo { text-align: right; }
+.cover-logo img { max-height: 28mm; max-width: 60mm; }
+
+/* ==========================================================================
+   PAGE: Table of Contents
+   ========================================================================== */
+.toc-list { margin-top: 10mm; }
+.toc-row {
+  display: flex;
+  align-items: center;
+  padding: 5mm 0;
+  border-bottom: 1px solid var(--border-grey);
+}
+.toc-roman {
+  width: 30mm;
+  background: var(--primary);
+  color: var(--white);
+  padding: 4mm 6mm;
+  font-weight: 700;
+  font-size: 12pt;
+  text-align: center;
+  margin-right: 8mm;
+  border-radius: 2px;
+}
+.toc-title { flex: 1; font-size: 12pt; color: var(--text); }
+.toc-page {
+  font-size: 12pt;
+  color: var(--primary);
+  font-weight: 700;
+  width: 20mm;
+  text-align: right;
+}
+
+/* ==========================================================================
+   PAGE: Section divider
+   ========================================================================== */
+.divider {
+  display: flex;
+  height: 100%;
+  padding: 0;
+}
+.divider-image {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+}
+.divider-title {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30mm;
+}
+.divider-title h1 {
+  font-size: 36pt;
+  color: var(--primary);
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ==========================================================================
+   PAGE: KPI Dashboard (used for country macro section)
+   ========================================================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6mm;
+  margin: 6mm 0;
+}
+.kpi-card {
+  background: var(--bg-grey);
+  border-left: 4px solid var(--primary);
+  padding: 6mm;
+  border-radius: 2px;
+}
+.kpi-card .label {
+  font-size: 9pt;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3mm;
+}
+.kpi-card .value {
+  font-size: 22pt;
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2mm;
+}
+.kpi-card .delta {
+  font-size: 9pt;
+  color: var(--text-muted);
+}
+.kpi-card .delta.up { color: #2E7D32; }
+.kpi-card .delta.down { color: #C62828; }
+
+.country-banner {
+  display: flex;
+  align-items: center;
+  gap: 10mm;
+  padding: 8mm 0;
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: 8mm;
+}
+.country-banner .flag-large {
+  width: 60mm;
+  height: 40mm;
+  object-fit: cover;
+  border: 1px solid var(--border-grey);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.country-banner .country-info h2 {
+  margin: 0 0 3mm 0;
+  font-size: 28pt;
+}
+.country-banner .country-info p {
+  font-size: 11pt;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   PAGE: Executive summary table (icon-based segments)
+   ========================================================================== */
+.exec-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4mm;
+}
+.exec-summary-table thead th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 4mm;
+  text-align: left;
+  font-size: 11pt;
+}
+.exec-summary-table tbody tr {
+  background: var(--bg-grey);
+  border-bottom: 4px solid var(--white);
+}
+.exec-summary-table tbody td {
+  padding: 5mm;
+  vertical-align: top;
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+.exec-summary-table .seg-icon-cell {
+  width: 28mm;
+  text-align: center;
+}
+.exec-summary-table .seg-icon-cell img,
+.exec-summary-table .seg-icon-cell svg {
+  width: 16mm;
+  height: 16mm;
+  display: block;
+  margin: 0 auto 2mm auto;
+}
+.exec-summary-table .seg-icon-cell .seg-label {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Charts & data containers
+   ========================================================================== */
+.chart-finding-title {
+  font-size: 16pt;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 6mm;
+  background: var(--bg-grey);
+  padding: 4mm 6mm;
+  border-left: 4px solid var(--primary);
+}
+.chart-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+  margin: 4mm 0;
+}
+.chart-container {
+  background: var(--white);
+  padding: 4mm;
+}
+.chart-container h4 {
+  text-align: center;
+  font-size: 11pt;
+  color: var(--primary);
+  margin-bottom: 4mm;
+}
+.chart-canvas {
+  width: 100%;
+  height: 60mm;
+}
+.chart-source {
+  font-size: 8pt;
+  color: var(--source-grey);
+  margin-top: 3mm;
+  font-style: italic;
+}
+.insights-box {
+  background: var(--bg-grey);
+  padding: 4mm 6mm;
+  margin-top: 4mm;
+  border-radius: 2px;
+}
+.insights-box ul { margin: 0; padding-left: 14pt; }
+.insights-box li {
+  font-size: 9.5pt;
+  margin-bottom: 2mm;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Tables (general data tables)
+   ========================================================================== */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 4mm 0;
+}
+.data-table thead th {
+  background: var(--primary);
+  color: var(--white);
+  padding: 3mm 4mm;
+  text-align: left;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.data-table tbody td {
+  padding: 3mm 4mm;
+  border-bottom: 1px solid var(--border-grey);
+}
+.data-table tbody tr:nth-child(even) { background: var(--bg-grey); }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ==========================================================================
+   SWOT matrix
+   ========================================================================== */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+  margin-top: 4mm;
+}
+.swot-cell {
+  padding: 6mm;
+  border-radius: 2px;
+  min-height: 60mm;
+}
+.swot-cell h4 {
+  font-size: 13pt;
+  margin-bottom: 4mm;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.swot-cell ul { color: var(--white); }
+.swot-cell li { font-size: 9.5pt; line-height: 1.5; }
+.swot-cell.strengths { background: #2E7D32; }
+.swot-cell.weaknesses { background: #C62828; }
+.swot-cell.opportunities { background: var(--primary); }
+.swot-cell.threats { background: #E65100; }
+
+/* ==========================================================================
+   Recommendations table
+   ========================================================================== */
+.recommendations-table .priority-high { color: #C62828; font-weight: 700; }
+.recommendations-table .priority-med { color: #E65100; font-weight: 700; }
+.recommendations-table .priority-low { color: #2E7D32; font-weight: 700; }
+
+/* ==========================================================================
+   RTL support (Arabic)
+   ========================================================================== */
+[dir="rtl"] body {
+  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', Arial, sans-serif;
+}
+[dir="rtl"] .page-header { flex-direction: row-reverse; }
+[dir="rtl"] .toc-roman { margin-right: 0; margin-left: 8mm; }
+[dir="rtl"] .toc-page { text-align: left; }
+[dir="rtl"] .divider { flex-direction: row-reverse; }
+[dir="rtl"] .divider-title h1 { text-align: right; }
+[dir="rtl"] .kpi-card { border-left: none; border-right: 4px solid var(--primary); }
+[dir="rtl"] .chart-finding-title { border-left: none; border-right: 4px solid var(--primary); }
+[dir="rtl"] .data-table thead th { text-align: right; }
+[dir="rtl"] .data-table .num { text-align: left; }
+
+/* ==========================================================================
+   Utility classes
+   ========================================================================== */
+.text-primary { color: var(--primary); }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.bg-grey { background: var(--bg-grey); }
+.mt-2 { margin-top: 4mm; }
+.mt-4 { margin-top: 8mm; }
+.mb-2 { margin-bottom: 4mm; }
+.section-intro {
+  font-size: 11pt;
+  color: var(--text);
+  margin-bottom: 6mm;
+  line-height: 1.6;
+  max-width: 220mm;
+}

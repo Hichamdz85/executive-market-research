@@ -1,0 +1,9 @@
+# Required for PDF generation (best fidelity)
+playwright>=1.40.0
+
+# Alternative PDF backend (lighter, no browser needed)
+# weasyprint>=60.0
+
+# Optional — for chart pre-rendering to static images
+# matplotlib>=3.7
+# pandas>=2.0

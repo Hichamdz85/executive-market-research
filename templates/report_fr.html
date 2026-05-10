@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>{{REPORT_TITLE}} — Étude de marché</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="cover-hero" style="background-image:url('{{HERO_IMAGE}}');"></div>
+  <div class="cover-body">
+    <div class="cover-text">
+      <h1>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</h1>
+      <div class="subtitle">Rapport d'étude de marché exécutive</div>
+      <div class="country-tag">
+        <img class="flag" src="{{FLAG_URL}}" alt="{{COUNTRY_NAME}} flag">
+        <span>{{COUNTRY_NAME}}</span>
+      </div>
+      <div class="date">{{REPORT_DATE}}</div>
+    </div>
+    <div class="cover-logo">
+      <img src="{{AUTHOR_LOGO}}" alt="{{AUTHOR_NAME}}">
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 2: TABLE OF CONTENTS ===== -->
+<div class="page">
+  <div class="page-header">
+    <h2>Sommaire</h2>
+    <img class="logo" src="{{AUTHOR_LOGO}}" alt="">
+  </div>
+  <div class="content">
+    <div class="toc-list">
+      <div class="toc-row"><div class="toc-roman">I</div><div class="toc-title">Méthodologie et périmètre</div><div class="toc-page">03</div></div>
+      <div class="toc-row"><div class="toc-roman">II</div><div class="toc-title">Vue macroéconomique : {{COUNTRY_NAME}}</div><div class="toc-page">06</div></div>
+      <div class="toc-row"><div class="toc-roman">III</div><div class="toc-title">Résumé exécutif</div><div class="toc-page">10</div></div>
+      <div class="toc-row"><div class="toc-roman">IV</div><div class="toc-title">Analyse du marché</div><div class="toc-page">14</div></div>
+      <div class="toc-row"><div class="toc-roman">V</div><div class="toc-title">Caractéristiques des importations</div><div class="toc-page">19</div></div>
+      <div class="toc-row"><div class="toc-roman">VI</div><div class="toc-title">Aspects réglementaires</div><div class="toc-page">25</div></div>
+      <div class="toc-row"><div class="toc-roman">VII</div><div class="toc-title">Paysage concurrentiel</div><div class="toc-page">31</div></div>
+      <div class="toc-row"><div class="toc-roman">VIII</div><div class="toc-title">Conclusion et recommandations</div><div class="toc-page">36</div></div>
+      <div class="toc-row"><div class="toc-roman">IX</div><div class="toc-title">Annexes</div><div class="toc-page">40</div></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>{{REPORT_DATE}}</span>
+    <span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span>
+    <span>2</span>
+  </div>
+</div>
+
+<!-- ===== SECTION I: METHODOLOGY ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_METHODOLOGY}}');"></div>
+  <div class="divider-title"><h1>I. Méthodologie<br>et périmètre</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Méthodologie</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <p class="section-intro">{{METHODOLOGY_INTRO}}</p>
+    <h3>Objectifs de la mission</h3>
+    <ul>{{METHODOLOGY_OBJECTIVES}}</ul>
+    <h3>Périmètre des travaux</h3>
+    <ul>{{METHODOLOGY_SCOPE}}</ul>
+    <h3>Approche de recherche</h3>
+    <p>{{METHODOLOGY_APPROACH}}</p>
+    <h3>Sources de données</h3>
+    <p>{{METHODOLOGY_SOURCES}}</p>
+    <h3>Limites</h3>
+    <p>{{METHODOLOGY_LIMITATIONS}}</p>
+  </div>
+  <div class="page-footer">
+    <span>{{REPORT_DATE}}</span>
+    <span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span>
+    <span>3</span>
+  </div>
+</div>
+
+<!-- ===== SECTION II: COUNTRY MACRO ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_COUNTRY}}');"></div>
+  <div class="divider-title"><h1>II. {{COUNTRY_NAME}}<br>en bref</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>{{COUNTRY_NAME}} — Aperçu du pays</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <div class="country-banner">
+      <img class="flag-large" src="{{FLAG_URL_LARGE}}" alt="{{COUNTRY_NAME}} flag">
+      <div class="country-info">
+        <h2>{{COUNTRY_NAME}}</h2>
+        <p>{{COUNTRY_TAGLINE}}</p>
+      </div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="label">Population</div><div class="value">{{KPI_POPULATION}}</div><div class="delta">{{KPI_POPULATION_DELTA}}</div></div>
+      <div class="kpi-card"><div class="label">PIB nominal</div><div class="value">{{KPI_GDP}}</div><div class="delta">{{KPI_GDP_DELTA}}</div></div>
+      <div class="kpi-card"><div class="label">PIB par habitant</div><div class="value">{{KPI_GDP_PC}}</div><div class="delta">{{KPI_GDP_PC_DELTA}}</div></div>
+      <div class="kpi-card"><div class="label">Inflation (IPC)</div><div class="value">{{KPI_INFLATION}}</div><div class="delta">{{KPI_INFLATION_DELTA}}</div></div>
+      <div class="kpi-card"><div class="label">Taux de change USD</div><div class="value">{{KPI_FX}}</div><div class="delta">{{KPI_FX_DELTA}}</div></div>
+      <div class="kpi-card"><div class="label">Balance commerciale</div><div class="value">{{KPI_TRADE_BAL}}</div><div class="delta">{{KPI_TRADE_BAL_DELTA}}</div></div>
+      <div class="kpi-card"><div class="label">Notation souveraine</div><div class="value">{{KPI_RATING}}</div><div class="delta">{{KPI_RATING_AGENCY}}</div></div>
+      <div class="kpi-card"><div class="label">Facilité de faire des affaires</div><div class="value">{{KPI_EODB}}</div><div class="delta">{{KPI_EODB_DELTA}}</div></div>
+    </div>
+    <p class="chart-source">Source: World Bank, IMF, {{AUTHOR_NAME}} Analysis</p>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>7</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>{{COUNTRY_NAME}} — Tendances macroéconomiques</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <div class="chart-finding-title">{{MACRO_FINDING_HEADLINE}}</div>
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>PIB nominal (USD bn)</h4>
+        <canvas id="chart-gdp" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: IMF World Economic Outlook</div>
+      </div>
+      <div class="chart-container">
+        <h4>Flux commerciaux (M USD)</h4>
+        <canvas id="chart-trade" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade</div>
+      </div>
+    </div>
+    <div class="insights-box">
+      <ul>{{MACRO_INSIGHTS}}</ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>8</span></div>
+</div>
+
+<!-- ===== SECTION III: EXECUTIVE SUMMARY ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_EXEC}}');"></div>
+  <div class="divider-title"><h1>III. Résumé<br>exécutif</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Résumé exécutif</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <table class="exec-summary-table">
+      <thead><tr><th>Segment</th><th>Observations clés</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-product.svg" alt="">
+            <div class="seg-label">Définition du produit</div>
+          </td>
+          <td>{{EXEC_PRODUCT_DEF}}</td>
+        </tr>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-demand.svg" alt="">
+            <div class="seg-label">Demande</div>
+          </td>
+          <td>{{EXEC_DEMAND}}</td>
+        </tr>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-supply.svg" alt="">
+            <div class="seg-label">Offre</div>
+          </td>
+          <td>{{EXEC_SUPPLY}}</td>
+        </tr>
+        <tr>
+          <td class="seg-icon-cell">
+            <img src="../assets/icons/icon-target.svg" alt="">
+            <div class="seg-label">Attractivité</div>
+          </td>
+          <td>{{EXEC_ATTRACTIVENESS}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>11</span></div>
+</div>
+
+<!-- ===== SECTION IV: MARKET REVIEW ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_MARKET}}');"></div>
+  <div class="divider-title"><h1>IV. Analyse<br>du marché</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Taille et croissance du marché</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <div class="chart-finding-title">{{MARKET_FINDING_HEADLINE}}</div>
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>Taille du marché en valeur (M USD)</h4>
+        <canvas id="chart-market-value" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: {{MARKET_VALUE_SOURCE}}</div>
+      </div>
+      <div class="chart-container">
+        <h4>Taille du marché en volume (milliers de tonnes)</h4>
+        <canvas id="chart-market-volume" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: {{MARKET_VOLUME_SOURCE}}</div>
+      </div>
+    </div>
+    <div class="insights-box">
+      <ul>{{MARKET_INSIGHTS}}</ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>15</span></div>
+</div>
+
+<!-- ===== SECTION V: IMPORT CHARACTERISTICS ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_IMPORTS}}');"></div>
+  <div class="divider-title"><h1>V. Caractéristiques<br>des importations</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Tendances d'importation en {{COUNTRY_NAME}}</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <div class="chart-finding-title">{{IMPORTS_FINDING_HEADLINE}}</div>
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>Importations en valeur (M USD)</h4>
+        <canvas id="chart-import-value" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade</div>
+      </div>
+      <div class="chart-container">
+        <h4>Importations en volume (milliers de tonnes)</h4>
+        <canvas id="chart-import-volume" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: UN Comtrade</div>
+      </div>
+    </div>
+    <div class="insights-box">
+      <ul>{{IMPORTS_INSIGHTS}}</ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>20</span></div>
+</div>
+
+<!-- ===== SECTION VI: REGULATORY ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_REGULATORY}}');"></div>
+  <div class="divider-title"><h1>VI. Aspects<br>réglementaires</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Tarifs, taxes et accords commerciaux</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <table class="data-table">
+      <thead><tr><th>Élément</th><th>Détail</th><th>Source</th></tr></thead>
+      <tbody>{{REGULATORY_TABLE}}</tbody>
+    </table>
+    <div class="insights-box mt-4">
+      <ul>{{REGULATORY_INSIGHTS}}</ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>26</span></div>
+</div>
+
+<!-- ===== SECTION VII: COMPETITIVE LANDSCAPE ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_COMPETITIVE}}');"></div>
+  <div class="divider-title"><h1>VII. Paysage<br>concurrentiel</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Acteurs clés et parts de marché</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <div class="chart-grid-2">
+      <div class="chart-container">
+        <h4>Parts de marché estimées par acteur</h4>
+        <canvas id="chart-market-share" class="chart-canvas"></canvas>
+        <div class="chart-source">Source: {{MARKET_SHARE_SOURCE}}</div>
+      </div>
+      <div>
+        <table class="data-table">
+          <thead><tr><th>Acteur</th><th>Siège</th><th>Niveau</th></tr></thead>
+          <tbody>{{COMPETITIVE_TABLE}}</tbody>
+        </table>
+      </div>
+    </div>
+    <div class="insights-box mt-4">
+      <ul>{{COMPETITIVE_INSIGHTS}}</ul>
+    </div>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>32</span></div>
+</div>
+
+<!-- ===== SECTION VIII: CONCLUSION ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_CONCLUSION}}');"></div>
+  <div class="divider-title"><h1>VIII. Conclusion<br>et recommandations</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Analyse SWOT</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <div class="swot-grid">
+      <div class="swot-cell strengths">
+        <h4>Forces</h4>
+        <ul>{{SWOT_STRENGTHS}}</ul>
+      </div>
+      <div class="swot-cell weaknesses">
+        <h4>Faiblesses</h4>
+        <ul>{{SWOT_WEAKNESSES}}</ul>
+      </div>
+      <div class="swot-cell opportunities">
+        <h4>Opportunités</h4>
+        <ul>{{SWOT_OPPORTUNITIES}}</ul>
+      </div>
+      <div class="swot-cell threats">
+        <h4>Menaces</h4>
+        <ul>{{SWOT_THREATS}}</ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>37</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Recommandations stratégiques</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <table class="data-table recommendations-table">
+      <thead><tr><th>#</th><th>Recommandation</th><th>Priorité</th><th>Échéance</th><th>Impact attendu</th></tr></thead>
+      <tbody>{{RECOMMENDATIONS_TABLE}}</tbody>
+    </table>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>38</span></div>
+</div>
+
+<!-- ===== SECTION IX: APPENDIX ===== -->
+<div class="page divider">
+  <div class="divider-image" style="background-image:url('{{DIVIDER_IMAGE_APPENDIX}}');"></div>
+  <div class="divider-title"><h1>IX. Annexes</h1></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><h2>Sources et notes méthodologiques</h2><img class="logo" src="{{AUTHOR_LOGO}}" alt=""></div>
+  <div class="content">
+    <h3>Sources principales de données</h3>
+    <ul>{{APPENDIX_SOURCES}}</ul>
+    <h3>Codes SH utilisés dans cette analyse</h3>
+    <ul>{{APPENDIX_HS_CODES}}</ul>
+    <h3>Glossaire</h3>
+    <ul>{{APPENDIX_GLOSSARY}}</ul>
+  </div>
+  <div class="page-footer"><span>{{REPORT_DATE}}</span><span>Étude de marché : {{PRODUCT_NAME}} en {{COUNTRY_NAME}}</span><span>41</span></div>
+</div>
+
+<!-- ===== CHART SCRIPTS ===== -->
+<script>
+const chartTheme = {
+  primary: '#00338D', secondary: '#0091DA', accent: '#005EB8',
+  c3: '#6BBE9F', c4: '#F4B400', c5: '#DB4437'
+};
+Chart.defaults.font.family = "'Helvetica Neue', Arial, sans-serif";
+Chart.defaults.color = '#1A1A1A';
+
+// All chart configs are injected by the generator script via {{CHART_CONFIGS}}
+{{CHART_CONFIGS}}
+</script>
+
+
+<!-- ===== BACK COVER: AUTHOR ===== -->
+<div class="page" style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#00338D 0%,#001E4F 100%);color:white;padding:30mm;text-align:center;">
+  <div style="font-size:11pt;text-transform:uppercase;letter-spacing:0.3em;opacity:0.7;margin-bottom:6mm;">À propos de l'auteur</div>
+  <div style="font-size:42pt;font-weight:800;letter-spacing:-0.02em;margin-bottom:6mm;">KHELIFI CONSULTING</div>
+  <div style="height:2px;width:60mm;background:rgba(255,255,255,0.3);margin-bottom:10mm;"></div>
+  <div style="font-size:13pt;line-height:1.7;max-width:200mm;color:rgba(255,255,255,0.9);"><strong>KHELIFI CONSULTING</strong> — Conseil stratégique et études marketing pour l'Algérie et la région MENA. Nous transformons les questions de marché en réponses prêtes pour le conseil d'administration. Pour des missions sur mesure : <a href='mailto:info@khelificonsulting.com'>info@khelificonsulting.com</a> · <a href='https://khelificonsulting.com'>khelificonsulting.com</a></div>
+  <div style="margin-top:20mm;font-size:9pt;opacity:0.5;">Rapport généré avec la skill Executive Market Research — open source, licence MIT.</div>
+</div>
+
+</body>
+</html>
