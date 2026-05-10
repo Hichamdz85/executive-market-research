@@ -4,23 +4,32 @@
    License: MIT
    ========================================================================== */
 
-/* ---------- Color palette ---------- */
+/* ---------- Color palette — Khelifi Consulting brand ---------- */
 :root {
-  --primary: #00338D;        /* KPMG navy */
-  --primary-dark: #001E4F;
-  --secondary: #0091DA;      /* Sky blue */
-  --accent: #005EB8;
-  --bg-grey: #F5F5F5;
-  --border-grey: #E0E0E0;
-  --text: #1A1A1A;
+  --primary: #1F1F23;        /* Khelifi charcoal */
+  --primary-dark: #0F0F12;
+  --secondary: #C9A45A;      /* Khelifi gold */
+  --accent: #B8924C;         /* Deeper gold */
+  --bg-grey: #F7F5F0;        /* Warm off-white */
+  --border-grey: #E5DFD3;
+  --text: #1F1F23;
   --text-muted: #6B6B6B;
   --source-grey: #8C8C8C;
   --white: #FFFFFF;
-  --chart-1: #00338D;
-  --chart-2: #0091DA;
-  --chart-3: #6BBE9F;
-  --chart-4: #F4B400;
-  --chart-5: #DB4437;
+  --chart-1: #C9A45A;
+  --chart-2: #1F1F23;
+  --chart-3: #B8924C;
+  --chart-4: #4A4A50;
+  --chart-5: #8C7B4F;
+}
+
+/* Subtle gold geometric pattern background utility */
+.bg-pattern {
+  background-color: var(--primary);
+  background-image:
+    linear-gradient(45deg, rgba(201, 164, 90, 0.06) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(201, 164, 90, 0.06) 25%, transparent 25%);
+  background-size: 24px 24px;
 }
 
 /* ---------- Reset ---------- */

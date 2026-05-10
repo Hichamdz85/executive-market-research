@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <pattern id="khpat" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 0 25 L 25 0 L 50 25 L 25 50 Z M 25 0 L 25 50 M 0 25 L 50 25" stroke="#C9A45A" stroke-width="0.4" fill="none" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="#1F1F23"/>
+  <rect width="200" height="200" fill="url(#khpat)"/>
+</svg>
