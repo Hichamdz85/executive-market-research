@@ -4,7 +4,7 @@
 
 # Executive Market Research
 
-### A Claude Skill producing KPMG-grade market research reports — in PDF and interactive HTML — for any product, sector, or country.
+### A Claude Skill producing Khelifi Consulting-grade market research reports — in PDF and interactive HTML — for any product, sector, or country.
 
 [![Version](https://img.shields.io/github/v/release/Hichamdz85/executive-market-research?color=C9A45A&label=version)](https://github.com/Hichamdz85/executive-market-research/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-C9A45A.svg)](https://opensource.org/licenses/MIT)
@@ -16,7 +16,7 @@
 
 **Three languages · Live web research · Investor-grade output · Free & open source**
 
-[🌐 Live demo](https://hichamdz85.github.io/executive-market-research/) · [⚡ Quick start](#quick-start) · [🎯 How it works](#how-it-works) · [📚 Methodology](reference/kpmg_research_playbook.md) · [📥 Sample report (PDF)](https://github.com/Hichamdz85/executive-market-research/releases/latest)
+[🌐 Live demo](https://hichamdz85.github.io/executive-market-research/) · [⚡ Quick start](#quick-start) · [🎯 How it works](#how-it-works) · [📚 Methodology](reference/khelifi_research_playbook.md) · [📥 Sample report (PDF)](https://github.com/Hichamdz85/executive-market-research/releases/latest)
 
 </div>
 
@@ -24,7 +24,7 @@
 
 ## What it does
 
-Hand it a product and a country — get back a **35–45 page consulting deliverable** that looks like KPMG, Deloitte, or McKinsey produced it. No templates to fill in, no slides to design. Claude handles the research, the analysis, the charts, and the layout.
+Hand it a product and a country — get back a **35–45 page consulting deliverable** that looks like Khelifi Consulting, Deloitte, or McKinsey produced it. No templates to fill in, no slides to design. Claude handles the research, the analysis, the charts, and the layout.
 
 ```
 You:    "Market research for HVAC accessories in Algeria, in English"
@@ -40,7 +40,7 @@ You:    receive the deliverable, ready to send to a board / investor / client.
 
 | Other "AI report" tools | This skill |
 |-------------------------|-----------|
-| Generic templates filled with bullet points | Real consulting structure (9 sections, KPMG-style) |
+| Generic templates filled with bullet points | Real consulting structure (9 sections, executive-grade) |
 | Single-source generation | **Triangulation rule**: 3+ sources per headline number |
 | English only | **English + Arabic (RTL) + French** |
 | Plain HTML output | PDF + interactive HTML, fully branded |
@@ -133,7 +133,7 @@ The full layout (header, footer, charts, tables, SWOT) flips for RTL automatical
 ┌─────────────────────────────────────────────────────────────┐
 │  1.  Intake the request (product, country, language, focus) │
 ├─────────────────────────────────────────────────────────────┤
-│  2.  Live web research — KPMG 5-phase funnel                │
+│  2.  Live web research — Khelifi Consulting 5-phase funnel  │
 │       a) Quick orientation (multilingual)                   │
 │       b) Official sources (World Bank, IMF, UN, national)   │
 │       c) Specialised data (Statista, Euromonitor, EIU…)     │
@@ -159,7 +159,7 @@ The full layout (header, footer, charts, tables, SWOT) flips for RTL automatical
 
 ## Research methodology
 
-This skill enforces the **7 Golden Rules** used by Big-4 consulting firms:
+This skill enforces the **7 Golden Rules** of Khelifi Consulting's professional consulting methodology:
 
 1. **Triangulation** — every key number from 3+ independent sources
 2. **Freshness** — prioritise data <18 months old
@@ -169,7 +169,7 @@ This skill enforces the **7 Golden Rules** used by Big-4 consulting firms:
 6. **ESG mandatory** — every report covers Environmental, Social, Governance
 7. **Primary research simulation** — propose 5–10 interview questions
 
-Read the full playbook: [reference/kpmg_research_playbook.md](reference/kpmg_research_playbook.md)
+Read the full playbook: [reference/khelifi_research_playbook.md](reference/khelifi_research_playbook.md)
 
 ## Project structure
 
@@ -182,14 +182,14 @@ executive-market-research/
 │   ├── report_en.html                ← English template (LTR)
 │   ├── report_ar.html                ← Arabic template (RTL)
 │   ├── report_fr.html                ← French template (LTR)
-│   └── styles.css                    ← KPMG-style design system
+│   └── styles.css                    ← Executive-grade design system
 ├── scripts/
 │   ├── generate_report.py            ← Main pipeline
 │   └── fetch_assets.py               ← Country flags + section images
 ├── assets/
-│   └── icons/                        ← SVG icons (KPMG-style line art)
+│   └── icons/                        ← SVG icons (executive-grade line art)
 ├── reference/
-│   ├── kpmg_research_playbook.md     ← The 7 Golden Rules + 5-phase funnel
+│   ├── khelifi_research_playbook.md  ← The 7 Golden Rules + 5-phase funnel
 │   ├── report_structure.md           ← 9-section breakdown
 │   ├── data_sources.md               ← Authoritative source map
 │   ├── research_methodology.md       ← Step-by-step research process
@@ -237,7 +237,7 @@ PRs welcome. Areas where contributions are especially helpful:
 
 - Additional language templates (ES, PT, DE, ZH, RU, TR, …)
 - Sector-specific data source maps in `reference/data_sources.md`
-- Country-specific source maps in `reference/kpmg_research_playbook.md`
+- Country-specific source maps in `reference/khelifi_research_playbook.md`
 - Improved chart types (geographic heatmaps, treemaps)
 - Better stock photography curation in `assets/images/`
 

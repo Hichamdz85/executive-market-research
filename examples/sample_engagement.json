@@ -101,8 +101,8 @@
   },
   "market": {
     "finding_headline": "HVAC accessories market in Algeria reached USD 233M (2024); forecast USD 280M by 2028.",
-    "value_source": "UN Comtrade, ONS, KPMG analysis adapted",
-    "volume_source": "UN Comtrade, ONS, KPMG analysis adapted",
+    "value_source": "UN Comtrade, ONS, Khelifi Consulting analysis",
+    "volume_source": "UN Comtrade, ONS, Khelifi Consulting analysis",
     "insights": [
       "Real estate and infrastructure account for ~70% of demand; industrial users (food processing, pharma) ~20%; remainder is replacement/aftermarket.",
       "Government housing programme (Logement Promotionnel Aidé) targets ~200,000 units annually, sustaining base demand.",
@@ -233,7 +233,7 @@
     ]
   },
   "competitive": {
-    "market_share_source": "Industry interviews; KPMG analysis adapted",
+    "market_share_source": "Industry interviews; Khelifi Consulting analysis",
     "rows": [
       {
         "player": "Condor Electronics",

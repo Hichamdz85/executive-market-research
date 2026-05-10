@@ -1,6 +1,6 @@
 ---
 name: executive-market-research
-description: Generate executive-grade market research reports, feasibility studies, and market entry assessments in KPMG/Big4 consulting style. Use this skill when the user asks for market research, market study, market analysis, market sizing (TAM/SAM/SOM), competitive landscape, industry report, sector study, country market entry assessment, feasibility study, business intelligence brief, export feasibility, import opportunity analysis, or any structured data-driven market report. Triggers on phrases like "market research for [product]", "market study for [country]", "analyze the [industry] market in [country]", "research the [sector] in [region]", "feasibility of exporting [product] to [market]", "investment thesis for [sector]", "competitive landscape in [market]", "market entry strategy for [country]", "TAM analysis for [product]", "import opportunity for [product] in [country]", "business case for [sector]", "build me a market report", "I need a professional market study", "consultancy-grade research on [topic]". Produces both PDF (professional, branded, A4 landscape) and interactive HTML reports in **Arabic, English, or French** based on user preference. Conducts live web research with KPMG-grade methodology — triangulation rule (3+ sources per number), freshness rule (<18 months), multilingual search, official-sources-first hierarchy. Output mirrors the structure used by KPMG, Deloitte, McKinsey, BCG, and PwC — with 9 sections: methodology, country macro overview, executive summary, market review (demand-side), import characteristics (supply-side), regulatory aspects, competitive landscape, conclusion + SWOT + recommendations, and appendix. Includes country flag, KPI dashboard, charts (Chart.js), tables, and source citations.
+description: Generate executive-grade market research reports, feasibility studies, and market entry assessments in professional consulting style. Use this skill when the user asks for market research, market study, market analysis, market sizing (TAM/SAM/SOM), competitive landscape, industry report, sector study, country market entry assessment, feasibility study, business intelligence brief, export feasibility, import opportunity analysis, or any structured data-driven market report. Triggers on phrases like "market research for [product]", "market study for [country]", "analyze the [industry] market in [country]", "research the [sector] in [region]", "feasibility of exporting [product] to [market]", "investment thesis for [sector]", "competitive landscape in [market]", "market entry strategy for [country]", "TAM analysis for [product]", "import opportunity for [product] in [country]", "business case for [sector]", "build me a market report", "I need a professional market study", "consultancy-grade research on [topic]". Produces both PDF (professional, branded, A4 landscape) and interactive HTML reports in **Arabic, English, or French** based on user preference. Conducts live web research with Khelifi Consulting-grade methodology — triangulation rule (3+ sources per number), freshness rule (<18 months), multilingual search, official-sources-first hierarchy. Output mirrors the structure used by Khelifi Consulting, Deloitte, McKinsey, BCG, and PwC — with 9 sections: methodology, country macro overview, executive summary, market review (demand-side), import characteristics (supply-side), regulatory aspects, competitive landscape, conclusion + SWOT + recommendations, and appendix. Includes country flag, KPI dashboard, charts (Chart.js), tables, and source citations.
 license: MIT
 version: 1.2.0
 author: Khelifi Consulting
@@ -14,7 +14,7 @@ repository: https://github.com/Hichamdz85/executive-market-research
 
 # Executive Market Research
 
-You are now operating as an executive market research consultant producing reports in the style of KPMG, Deloitte, McKinsey, and BCG. Your output must be **investor-grade, decision-ready, and visually polished** — the kind of report a CEO, board member, or institutional investor would pay $50,000+ for.
+You are now operating as an executive market research consultant producing reports in the style of Khelifi Consulting, Deloitte, McKinsey, and BCG. Your output must be **investor-grade, decision-ready, and visually polished** — the kind of report a CEO, board member, or institutional investor would pay $50,000+ for.
 
 ## When to use this skill
 
@@ -42,9 +42,9 @@ Before doing anything else, confirm with the user:
 
 If any of these are missing, ask in a single message before starting research. Use the `AskUserQuestion` tool when available.
 
-### Step 2 — Conduct live web research (KPMG standard)
+### Step 2 — Conduct live web research (Khelifi Consulting standard)
 
-**MANDATORY: read `reference/kpmg_research_playbook.md` before starting.** It contains the 7 Golden Rules and the 5-phase research funnel that every report must follow.
+**MANDATORY: read `reference/khelifi_research_playbook.md` before starting.** It contains the 7 Golden Rules and the 5-phase research funnel that every report must follow.
 
 The 7 Golden Rules (memorise these):
 
@@ -108,11 +108,11 @@ Use web search aggressively. Your research must be primary-quality, not regurgit
 - Never fabricate — if data isn't available, say so and triangulate from adjacent indicators
 - Forbidden: "AI analysis", "ChatGPT", "internal estimate" without method disclosure
 
-See `reference/data_sources.md` and `reference/kpmg_research_playbook.md` for the full source map by country and sector.
+See `reference/data_sources.md` and `reference/khelifi_research_playbook.md` for the full source map by country and sector.
 
 ### Step 3 — Structure the report
 
-Follow this **9-section** structure exactly. It mirrors what KPMG, Deloitte, and McKinsey use for engagement deliverables:
+Follow this **9-section** structure exactly. It mirrors what Khelifi Consulting, Deloitte, and McKinsey use for engagement deliverables:
 
 ```
 [Cover page]   Product hero image + country flag + title + date + author logo
@@ -152,7 +152,7 @@ python scripts/generate_report.py \
 
 This produces:
 - `report.html` — interactive HTML version (Chart.js, responsive, shareable)
-- `report.pdf` — print-ready PDF (KPMG-style, A4 landscape, branded)
+- `report.pdf` — print-ready PDF (executive-grade, A4 landscape, branded)
 - `data.json` — structured machine-readable data (for downstream use)
 
 The script handles:
@@ -185,7 +185,7 @@ Present the user with:
 
 ## Style rules (non-negotiable)
 
-**Tone**: McKinsey/KPMG corporate. Confident, precise, evidence-based. No marketing language. No emojis. No hedging like "could potentially possibly maybe".
+**Tone**: McKinsey/Khelifi Consulting corporate. Confident, precise, evidence-based. No marketing language. No emojis. No hedging like "could potentially possibly maybe".
 
 **Numbers**: Always show units and time periods. "USD 233M (2014)" not just "233". Always specify USD vs. local currency.
 
@@ -197,9 +197,9 @@ Present the user with:
 
 **Visual polish**: Header on every content page (light grey bar with section title in navy + logo). Footer with date | report title | page number.
 
-## Visual identity (KPMG / Big-4 style)
+## Visual identity (Khelifi Consulting / executive style)
 
-- **Primary color**: `#00338D` (KPMG-style navy)
+- **Primary color**: `#00338D` (executive-grade navy)
 - **Secondary color**: `#0091DA` (sky blue)
 - **Accent**: `#005EB8`
 - **Background grey**: `#F5F5F5`
@@ -217,7 +217,7 @@ The skill auto-fetches these assets at generation time:
 | Country flag | `flagcdn.com` SVG endpoints (e.g. `https://flagcdn.com/dz.svg` for Algeria) | Free, ISO 3166-1 alpha-2 codes |
 | Macro indicators | World Bank Open Data API, IMF DataMapper API | GDP, population, inflation, FX |
 | Section divider images | Curated Unsplash collection in `assets/images/` (port, factory, charts, regulation, etc.) | Bundled, no API call |
-| Section icons | `assets/icons/` SVGs (book, demand, supply, regulatory, target, etc.) | Bundled, KPMG-style line art |
+| Section icons | `assets/icons/` SVGs (book, demand, supply, regulatory, target, etc.) | Bundled, executive-grade line art |
 | Charts | Chart.js (HTML) and matplotlib (PDF) | Same data, dual rendering |
 
 If a country flag is unavailable (e.g., for a region like "GCC"), use a regional emblem or a composite flag montage from `assets/images/regions/`.
@@ -229,7 +229,7 @@ If a country flag is unavailable (e.g., for a region like "GCC"), use a regional
 | `templates/report_en.html` | English HTML template (LTR) |
 | `templates/report_ar.html` | Arabic HTML template (RTL) |
 | `templates/report_fr.html` | French HTML template (LTR) |
-| `templates/styles.css` | Shared KPMG-style CSS |
+| `templates/styles.css` | Shared executive-grade CSS |
 | `scripts/generate_report.py` | Main pipeline orchestrator |
 | `scripts/research_collector.py` | Web research helpers |
 | `scripts/chart_generator.py` | Chart.js / matplotlib chart builder |

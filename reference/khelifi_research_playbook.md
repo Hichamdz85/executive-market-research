@@ -1,6 +1,6 @@
-# KPMG-Standard Research Playbook
+# Khelifi Consulting Research Playbook
 
-This is the **mandatory** research methodology for every engagement produced by `executive-market-research`. It mirrors the actual approach used by KPMG, Deloitte, McKinsey, and BCG when producing a feasibility study or market entry assessment.
+This is the **mandatory** research methodology for every engagement produced by `executive-market-research`. It mirrors the professional consulting approach used by Khelifi Consulting, Deloitte, McKinsey, and BCG when producing a feasibility study or market entry assessment.
 
 **Read this in full before starting any new report.**
 
@@ -87,7 +87,7 @@ For every headline statistic in the report, maintain a small audit table:
 | Statistic | Source 1 | Source 2 | Source 3 | Confidence |
 |-----------|----------|----------|----------|-----------|
 | Market size 2024 | UN Comtrade | ONS | Mordor Intelligence | High |
-| CAGR 2019–2024 | KPMG analysis | EIU | World Steel Association | High |
+| CAGR 2019–2024 | Khelifi Consulting analysis | EIU | World Steel Association | High |
 | Top exporters | UN Comtrade | Trade Map | Customs Algeria | High |
 
 Don't include this table in the deliverable — keep it in your research log so you can defend any number under interrogation.
@@ -227,7 +227,7 @@ When orienting on a new topic, use these query patterns:
 
 ## What "good" looks like
 
-A KPMG-grade report has:
+A Khelifi Consulting-grade report has:
 
 - 30+ unique sources cited in the bibliography
 - 3+ sources triangulated for every headline number

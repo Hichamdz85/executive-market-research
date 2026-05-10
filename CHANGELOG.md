@@ -29,7 +29,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 ## [1.1.0] — 2026-05-10
 
 ### Changed
-- 🎨 **Brand identity** — Replaced KPMG navy palette with Khelifi Consulting **charcoal (#1F1F23)** + **gold (#C9A45A)**
+- 🎨 **Brand identity** — Replaced legacy navy palette with Khelifi Consulting **charcoal (#1F1F23)** + **gold (#C9A45A)**
 - Landing page redesigned with **Cormorant Garamond** serif typography (elegant, editorial)
 - Color tokens in `templates/styles.css` updated globally
 
@@ -42,10 +42,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 ## [1.0.0] — 2026-05-10
 
 ### Added
-- 🎯 Initial release — KPMG-grade market research skill for Claude
+- 🎯 Initial release — Khelifi Consulting-grade market research skill for Claude
 - **9-section structure**: Methodology · Country macro · Executive summary · Market · Imports · Regulatory · Competitive · SWOT · Appendix
 - **Trilingual support**: English, Arabic (full RTL), French
-- **7 Golden Rules** of research methodology in `reference/kpmg_research_playbook.md`:
+- **7 Golden Rules** of Khelifi Consulting research methodology in `reference/khelifi_research_playbook.md`:
   1. Triangulation (≥3 sources per number)
   2. Freshness (<18 months)
   3. Multilingual search
@@ -58,7 +58,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - Country flag fetching via flagcdn.com
 - 8-tile macro KPI dashboard
 - SWOT 2×2 matrix + recommendations table
-- 6 SVG section icons in KPMG-style line art
+- 6 SVG section icons in executive-grade line art
 - Sample HVAC Algeria engagement (3 generated HTML reports)
 - GitHub Pages landing site
 - MIT license

@@ -1,6 +1,6 @@
 # Report Structure — Detailed Section Breakdown
 
-This is the canonical structure for every report produced by the `executive-market-research` skill. The structure mirrors the engagement deliverables of KPMG, Deloitte, McKinsey, and BCG. Every section has required content, optional content, and visual elements.
+This is the canonical structure for every report produced by the `executive-market-research` skill. The structure mirrors the engagement deliverables of Khelifi Consulting, Deloitte, McKinsey, and BCG. Every section has required content, optional content, and visual elements.
 
 ## Page-by-page structure
 
