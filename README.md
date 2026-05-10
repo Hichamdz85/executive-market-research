@@ -1,17 +1,22 @@
 <div align="center">
 
+<img src="docs/og-image.png" alt="Executive Market Research — by Khelifi Consulting" width="100%"/>
+
 # Executive Market Research
 
-### A Claude Skill that produces KPMG-grade market research reports — in PDF and interactive HTML — for any product, sector, or country.
+### A Claude Skill producing KPMG-grade market research reports — in PDF and interactive HTML — for any product, sector, or country.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skill: Claude](https://img.shields.io/badge/Built%20for-Claude-FF7A00)](https://claude.ai)
-[![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20AR%20%7C%20FR-00338D)](#languages)
+[![Version](https://img.shields.io/github/v/release/Hichamdz85/executive-market-research?color=C9A45A&label=version)](https://github.com/Hichamdz85/executive-market-research/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-C9A45A.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://img.shields.io/github/actions/workflow/status/Hichamdz85/executive-market-research/ci.yml?branch=main&label=CI)](https://github.com/Hichamdz85/executive-market-research/actions)
+[![Stars](https://img.shields.io/github/stars/Hichamdz85/executive-market-research?style=flat&color=C9A45A)](https://github.com/Hichamdz85/executive-market-research/stargazers)
+[![Built for Claude](https://img.shields.io/badge/Built%20for-Claude-FF7A00)](https://claude.ai)
+[![Languages: EN · AR · FR](https://img.shields.io/badge/Languages-EN%20%C2%B7%20AR%20%C2%B7%20FR-1F1F23)](#languages)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
-**Three languages • Live web research • Investor-grade output • Free & open source**
+**Three languages · Live web research · Investor-grade output · Free & open source**
 
-[Live demo](https://khelifi-consulting.github.io/executive-market-research/) · [Quick start](#quick-start) · [How it works](#how-it-works) · [Methodology](reference/kpmg_research_playbook.md)
+[🌐 Live demo](https://hichamdz85.github.io/executive-market-research/) · [⚡ Quick start](#quick-start) · [🎯 How it works](#how-it-works) · [📚 Methodology](reference/kpmg_research_playbook.md) · [📥 Sample report (PDF)](https://github.com/Hichamdz85/executive-market-research/releases/latest)
 
 </div>
 
@@ -42,32 +47,42 @@ You:    receive the deliverable, ready to send to a board / investor / client.
 | Hallucinated numbers | Live web research, every number cited |
 | One-size-fits-all design | Country flag + macro dashboard + sector-specific imagery |
 
-## Sample output
+## What it produces
 
 <table>
 <tr>
-<td width="33%" align="center"><b>Cover page</b><br><sub>Hero image · Country flag · Author logo</sub></td>
-<td width="33%" align="center"><b>Country snapshot</b><br><sub>8 KPI dashboard · GDP & trade charts</sub></td>
-<td width="33%" align="center"><b>Executive summary</b><br><sub>Icon-based segments table</sub></td>
+<td width="33%" align="center"><b>Cover page</b><br><sub>Hero image · Country flag · Author logo · Date</sub></td>
+<td width="33%" align="center"><b>Table of contents</b><br><sub>9 numbered sections, page-mapped</sub></td>
+<td width="33%" align="center"><b>Country snapshot</b><br><sub>8-tile KPI dashboard · GDP · trade balance</sub></td>
 </tr>
 <tr>
-<td><img src="docs/preview-cover.png" alt="Cover preview"/></td>
-<td><img src="docs/preview-macro.png" alt="Macro preview"/></td>
-<td><img src="docs/preview-exec.png" alt="Exec summary preview"/></td>
+<td><img src="docs/screenshots/cover.png" alt="Cover page"/></td>
+<td><img src="docs/screenshots/toc.png" alt="Table of contents"/></td>
+<td><img src="docs/screenshots/macro_kpis.png" alt="Country macro KPIs"/></td>
 </tr>
 <tr>
-<td align="center"><b>Market sizing</b><br><sub>Value & volume bar charts</sub></td>
-<td align="center"><b>Regulatory deep-dive</b><br><sub>Tariffs · FTAs · Standards</sub></td>
-<td align="center"><b>Recommendations</b><br><sub>Priority · Timeline · Impact</sub></td>
+<td align="center"><b>Macro charts</b><br><sub>GDP trend · trade flows · sourced</sub></td>
+<td align="center"><b>Executive summary</b><br><sub>Icon-based segments · finding-as-headline</sub></td>
+<td align="center"><b>Market review</b><br><sub>Demand sizing · CAGR · drivers</sub></td>
 </tr>
 <tr>
-<td><img src="docs/preview-market.png" alt="Market preview"/></td>
-<td><img src="docs/preview-regulatory.png" alt="Regulatory preview"/></td>
-<td><img src="docs/preview-recos.png" alt="Recommendations preview"/></td>
+<td><img src="docs/screenshots/macro_charts.png" alt="Macro charts"/></td>
+<td><img src="docs/screenshots/exec_summary.png" alt="Executive summary"/></td>
+<td><img src="docs/screenshots/market.png" alt="Market sizing"/></td>
+</tr>
+<tr>
+<td align="center"><b>Imports analysis</b><br><sub>Value & volume bar charts · UN Comtrade</sub></td>
+<td align="center"><b>Regulatory deep-dive</b><br><sub>Tariffs · FTAs · standards · payment</sub></td>
+<td align="center"><b>About the author</b><br><sub>Khelifi Consulting branded back cover</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/imports.png" alt="Import analysis"/></td>
+<td><img src="docs/screenshots/regulatory.png" alt="Regulatory"/></td>
+<td><img src="docs/screenshots/author.png" alt="Author back cover"/></td>
 </tr>
 </table>
 
-> 📄 **Full sample**: [HVAC Accessories — Algeria (PDF)](examples/sample_report_en.pdf) · [HTML version](https://khelifi-consulting.github.io/executive-market-research/examples/sample_report_en.html)
+> 📄 **Try the live sample**: [HTML report (interactive)](https://hichamdz85.github.io/executive-market-research/examples/sample_report_en.html) · [📥 PDF in latest release](https://github.com/Hichamdz85/executive-market-research/releases/latest)
 
 ## Quick start
 
@@ -76,7 +91,7 @@ You:    receive the deliverable, ready to send to a board / investor / client.
 1. Clone or download this repo into your Claude skills directory:
 
    ```bash
-   git clone https://github.com/khelifi-consulting/executive-market-research.git \
+   git clone https://github.com/Hichamdz85/executive-market-research.git \
      ~/.claude/skills/executive-market-research
    ```
 

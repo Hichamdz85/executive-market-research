@@ -4,9 +4,8 @@
   "country_iso2": "DZ",
   "report_date": "May 2026",
   "author_name": "Khelifi Consulting",
-  "author_logo": "https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING",
+  "author_logo": "../assets/icons/logo-mark.svg",
   "hero_image": "https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=1600",
-
   "methodology": {
     "intro": "This report assesses the market opportunity for HVAC accessories in Algeria. It is intended for exporters, importers, and policymakers seeking a fact-based view of demand, supply, regulatory environment, and competitive intensity.",
     "objectives": [
@@ -25,7 +24,6 @@
     "sources": "Primary data sources include UN Comtrade (HS-level trade flows), World Bank Open Data (macro), IMF World Economic Outlook (forecasts), Office National des Statistiques (Algeria), Banque d'Algérie, and Direction Générale des Douanes. See Appendix for full bibliography.",
     "limitations": "Domestic production data for HVAC accessories is not separately published by Algerian statistics; estimates are derived from apparent consumption (imports + estimated production - exports) and triangulated with industry-association reports. Confidence: medium."
   },
-
   "macro": {
     "tagline": "Africa's largest country by area; a hydrocarbon-driven economy diversifying into manufacturing and infrastructure.",
     "population": "44.7M",
@@ -51,23 +49,56 @@
       "FX repatriation is regulated; advance payments to foreign suppliers require Letter of Credit issued by an Algerian bank."
     ],
     "gdp_series": {
-      "years": ["2019", "2020", "2021", "2022", "2023", "2024"],
-      "values": [171, 145, 167, 192, 222, 240]
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "values": [
+        171,
+        145,
+        167,
+        192,
+        222,
+        240
+      ]
     },
     "trade_series": {
-      "years": ["2019", "2020", "2021", "2022", "2023", "2024"],
-      "imports": [41, 33, 37, 41, 44, 47],
-      "exports": [35, 23, 35, 60, 50, 58]
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "imports": [
+        41,
+        33,
+        37,
+        41,
+        44,
+        47
+      ],
+      "exports": [
+        35,
+        23,
+        35,
+        60,
+        50,
+        58
+      ]
     }
   },
-
   "executive_summary": {
     "product_def": "HVAC accessories include grilles, diffusers, dampers, louvers, sound attenuators, and air terminal devices. HS codes 8415.82, 8415.83, 8415.90, 8421.39 capture the bulk of trade. Demand is driven by construction, real estate, healthcare, and industrial cooling.",
     "demand": "The Algerian market for HVAC accessories grew at a CAGR of ~5% from 2019 to 2024, reaching ~92,000 tons in 2024. Forecast CAGR of 1.8% through 2028, supported by housing programmes (1M-units plan) and metro/tramway projects.",
     "supply": "Imports cover ~12% of consumption; the balance is met by domestic producers leveraging local steel and aluminium. Top exporting partners: China (38%), Italy (15%), Türkiye (12%), France (10%), Germany (8%).",
     "attractiveness": "Export attractiveness: LOW–MODERATE. Entry barriers include strong domestic manufacturing, FX restrictions, and quotas on select HS codes. Premium segments (smart dampers, low-noise diffusers) offer the best opportunity for differentiation."
   },
-
   "market": {
     "finding_headline": "HVAC accessories market in Algeria reached USD 233M (2024); forecast USD 280M by 2028.",
     "value_source": "UN Comtrade, ONS, KPMG analysis adapted",
@@ -78,15 +109,42 @@
       "Climate (hot summers, mild winters) means cooling-only systems dominate; heating accessories play a smaller role outside Tell Atlas region."
     ],
     "value_series": {
-      "years": ["2019", "2020", "2021", "2022", "2023", "2024"],
-      "values": [200, 145, 168, 195, 215, 233]
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "values": [
+        200,
+        145,
+        168,
+        195,
+        215,
+        233
+      ]
     },
     "volume_series": {
-      "years": ["2019", "2020", "2021", "2022", "2023", "2024"],
-      "values": [69, 60, 75, 82, 87, 92]
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "values": [
+        69,
+        60,
+        75,
+        82,
+        87,
+        92
+      ]
     }
   },
-
   "imports": {
     "finding_headline": "Imports of HVAC accessories in Algeria grew at a CAGR of 2.8% from 2019 to 2024, reaching USD 130M.",
     "insights": [
@@ -95,50 +153,137 @@
       "Imports are subject to a 30% MFN tariff plus 19% VAT; GAFTA partners receive preferential 0% treatment for eligible HS codes."
     ],
     "value_series": {
-      "years": ["2019", "2020", "2021", "2022", "2023", "2024"],
-      "values": [110, 78, 95, 115, 128, 130]
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "values": [
+        110,
+        78,
+        95,
+        115,
+        128,
+        130
+      ]
     },
     "volume_series": {
-      "years": ["2019", "2020", "2021", "2022", "2023", "2024"],
-      "values": [9.5, 7.7, 9.6, 10.3, 9.8, 10.0]
+      "years": [
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "values": [
+        9.5,
+        7.7,
+        9.6,
+        10.3,
+        9.8,
+        10.0
+      ]
     }
   },
-
   "regulatory": {
     "rows": [
-      {"item": "MFN tariff", "detail": "30% on HS 8415.90", "source": "Direction Générale des Douanes"},
-      {"item": "VAT", "detail": "19% on landed cost", "source": "Code des Impôts Indirects"},
-      {"item": "GAFTA preference", "detail": "0% for Arab League members on most HS codes", "source": "Arab League Trade Council"},
-      {"item": "Standards", "detail": "ISO 9001 + Algerian conformity certification (IANOR)", "source": "IANOR.org.dz"},
-      {"item": "Import licence", "detail": "Required for HS codes >USD 100K annual flows", "source": "Ministry of Commerce"},
-      {"item": "Payment terms", "detail": "Letter of Credit only; advance payments restricted", "source": "Banque d'Algérie circular 03-2017"},
-      {"item": "Labelling", "detail": "Arabic + French on product labels and manuals", "source": "Decree 13-378"}
+      {
+        "item": "MFN tariff",
+        "detail": "30% on HS 8415.90",
+        "source": "Direction Générale des Douanes"
+      },
+      {
+        "item": "VAT",
+        "detail": "19% on landed cost",
+        "source": "Code des Impôts Indirects"
+      },
+      {
+        "item": "GAFTA preference",
+        "detail": "0% for Arab League members on most HS codes",
+        "source": "Arab League Trade Council"
+      },
+      {
+        "item": "Standards",
+        "detail": "ISO 9001 + Algerian conformity certification (IANOR)",
+        "source": "IANOR.org.dz"
+      },
+      {
+        "item": "Import licence",
+        "detail": "Required for HS codes >USD 100K annual flows",
+        "source": "Ministry of Commerce"
+      },
+      {
+        "item": "Payment terms",
+        "detail": "Letter of Credit only; advance payments restricted",
+        "source": "Banque d'Algérie circular 03-2017"
+      },
+      {
+        "item": "Labelling",
+        "detail": "Arabic + French on product labels and manuals",
+        "source": "Decree 13-378"
+      }
     ],
     "insights": [
       "FX restrictions are the most material regulatory friction; exporters need an Algerian bank counterpart.",
       "GAFTA preferences neutralise the 30% tariff for Qatari, Saudi, UAE, Egyptian exporters — a strong incentive for these origins."
     ]
   },
-
   "competitive": {
     "market_share_source": "Industry interviews; KPMG analysis adapted",
     "rows": [
-      {"player": "Condor Electronics", "hq": "Algeria (Bordj Bou Arréridj)", "tier": "Domestic — mass"},
-      {"player": "ENIEM", "hq": "Algeria (Tizi Ouzou)", "tier": "Domestic — mid"},
-      {"player": "Daikin (importer)", "hq": "Japan", "tier": "Premium"},
-      {"player": "Carrier (importer)", "hq": "USA", "tier": "Premium"},
-      {"player": "Midea (importer)", "hq": "China", "tier": "Mass"}
+      {
+        "player": "Condor Electronics",
+        "hq": "Algeria (Bordj Bou Arréridj)",
+        "tier": "Domestic — mass"
+      },
+      {
+        "player": "ENIEM",
+        "hq": "Algeria (Tizi Ouzou)",
+        "tier": "Domestic — mid"
+      },
+      {
+        "player": "Daikin (importer)",
+        "hq": "Japan",
+        "tier": "Premium"
+      },
+      {
+        "player": "Carrier (importer)",
+        "hq": "USA",
+        "tier": "Premium"
+      },
+      {
+        "player": "Midea (importer)",
+        "hq": "China",
+        "tier": "Mass"
+      }
     ],
     "insights": [
       "Domestic players hold ~75% of mass-market share; international brands dominate premium segment.",
       "No single international entrant has captured >10% share — fragmented opportunity for niche differentiation."
     ],
     "market_share": {
-      "players": ["Condor", "ENIEM", "Daikin", "Carrier", "Midea", "Others"],
-      "shares": [32, 22, 12, 9, 8, 17]
+      "players": [
+        "Condor",
+        "ENIEM",
+        "Daikin",
+        "Carrier",
+        "Midea",
+        "Others"
+      ],
+      "shares": [
+        32,
+        22,
+        12,
+        9,
+        8,
+        17
+      ]
     }
   },
-
   "swot": {
     "strengths": [
       "Large addressable market (~USD 230M)",
@@ -161,7 +306,6 @@
       "Currency depreciation eroding USD-denominated margins"
     ]
   },
-
   "recommendations": [
     {
       "title": "Target premium segment with smart/low-noise products",
@@ -194,7 +338,6 @@
       "impact": "Avoids surprises from regulatory tightening"
     }
   ],
-
   "appendix": {
     "sources": [
       "UN Comtrade — https://comtradeplus.un.org/",
@@ -219,16 +362,15 @@
       "TAM — Total Addressable Market"
     ]
   },
-
   "divider_images": {
     "methodology": "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1600",
-    "country":     "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600",
-    "exec":        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600",
-    "market":      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600",
-    "imports":     "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1600",
-    "regulatory":  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600",
+    "country": "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600",
+    "exec": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600",
+    "market": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600",
+    "imports": "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1600",
+    "regulatory": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600",
     "competitive": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600",
-    "conclusion":  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600",
-    "appendix":    "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1600"
+    "conclusion": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600",
+    "appendix": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1600"
   }
 }

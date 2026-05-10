@@ -10,23 +10,32 @@
    License: MIT
    ========================================================================== */
 
-/* ---------- Color palette ---------- */
+/* ---------- Color palette — Khelifi Consulting brand ---------- */
 :root {
-  --primary: #00338D;        /* KPMG navy */
-  --primary-dark: #001E4F;
-  --secondary: #0091DA;      /* Sky blue */
-  --accent: #005EB8;
-  --bg-grey: #F5F5F5;
-  --border-grey: #E0E0E0;
-  --text: #1A1A1A;
+  --primary: #1F1F23;        /* Khelifi charcoal */
+  --primary-dark: #0F0F12;
+  --secondary: #C9A45A;      /* Khelifi gold */
+  --accent: #B8924C;         /* Deeper gold */
+  --bg-grey: #F7F5F0;        /* Warm off-white */
+  --border-grey: #E5DFD3;
+  --text: #1F1F23;
   --text-muted: #6B6B6B;
   --source-grey: #8C8C8C;
   --white: #FFFFFF;
-  --chart-1: #00338D;
-  --chart-2: #0091DA;
-  --chart-3: #6BBE9F;
-  --chart-4: #F4B400;
-  --chart-5: #DB4437;
+  --chart-1: #C9A45A;
+  --chart-2: #1F1F23;
+  --chart-3: #B8924C;
+  --chart-4: #4A4A50;
+  --chart-5: #8C7B4F;
+}
+
+/* Subtle gold geometric pattern background utility */
+.bg-pattern {
+  background-color: var(--primary);
+  background-image:
+    linear-gradient(45deg, rgba(201, 164, 90, 0.06) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(201, 164, 90, 0.06) 25%, transparent 25%);
+  background-size: 24px 24px;
 }
 
 /* ---------- Reset ---------- */
@@ -510,7 +519,7 @@ table.data-table {
       <div class="date">May 2026</div>
     </div>
     <div class="cover-logo">
-      <img src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt="Khelifi Consulting">
+      <img src="../assets/icons/logo-mark.svg" alt="Khelifi Consulting">
     </div>
   </div>
 </div>
@@ -519,7 +528,7 @@ table.data-table {
 <div class="page">
   <div class="page-header">
     <h2>الفهرس</h2>
-    <img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt="">
+    <img class="logo" src="../assets/icons/logo-mark.svg" alt="">
   </div>
   <div class="content">
     <div class="toc-list">
@@ -548,7 +557,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>المنهجية</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>المنهجية</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <p class="section-intro">This report assesses the market opportunity for HVAC accessories in Algeria. It is intended for exporters, importers, and policymakers seeking a fact-based view of demand, supply, regulatory environment, and competitive intensity.</p>
     <h3>أهداف الدراسة</h3>
@@ -582,7 +591,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>Algeria — لمحة سريعة عن البلد</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>Algeria — لمحة سريعة عن البلد</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <div class="country-banner">
       <img class="flag-large" src="https://flagcdn.com/dz.svg" alt="Algeria flag">
@@ -607,7 +616,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>Algeria — الاتجاهات الاقتصادية الكلية</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>Algeria — الاتجاهات الاقتصادية الكلية</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <div class="chart-finding-title">Algeria's economy contracted between 2014–2016 with the oil-price slump; recovery has been steady since 2021.</div>
     <div class="chart-grid-2">
@@ -638,7 +647,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>الملخص التنفيذي</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>الملخص التنفيذي</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <table class="exec-summary-table">
       <thead><tr><th>القطاع</th><th>الملاحظات الرئيسية</th></tr></thead>
@@ -684,7 +693,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>حجم السوق ونموه</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>حجم السوق ونموه</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <div class="chart-finding-title">HVAC accessories market in Algeria reached USD 233M (2024); forecast USD 280M by 2028.</div>
     <div class="chart-grid-2">
@@ -715,7 +724,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>اتجاهات الواردات في Algeria</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>اتجاهات الواردات في Algeria</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <div class="chart-finding-title">Imports of HVAC accessories in Algeria grew at a CAGR of 2.8% from 2019 to 2024, reaching USD 130M.</div>
     <div class="chart-grid-2">
@@ -746,7 +755,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>التعرفات والضرائب والاتفاقيات التجارية</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>التعرفات والضرائب والاتفاقيات التجارية</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <table class="data-table">
       <thead><tr><th>البند</th><th>التفاصيل</th><th>المصدر</th></tr></thead>
@@ -773,7 +782,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>اللاعبون الرئيسيون والحصص السوقية</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>اللاعبون الرئيسيون والحصص السوقية</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <div class="chart-grid-2">
       <div class="chart-container">
@@ -807,7 +816,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>تحليل SWOT</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>تحليل SWOT</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <div class="swot-grid">
       <div class="swot-cell strengths">
@@ -840,7 +849,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>التوصيات الاستراتيجية</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>التوصيات الاستراتيجية</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <table class="data-table recommendations-table">
       <thead><tr><th>#</th><th>التوصية</th><th>الأولوية</th><th>الإطار الزمني</th><th>الأثر المتوقع</th></tr></thead>
@@ -861,7 +870,7 @@ table.data-table {
 </div>
 
 <div class="page">
-  <div class="page-header"><h2>المصادر وملاحظات المنهجية</h2><img class="logo" src="https://via.placeholder.com/200x60/00338D/FFFFFF?text=KHELIFI+CONSULTING" alt=""></div>
+  <div class="page-header"><h2>المصادر وملاحظات المنهجية</h2><img class="logo" src="../assets/icons/logo-mark.svg" alt=""></div>
   <div class="content">
     <h3>المصادر الرئيسية للبيانات</h3>
     <ul><li>UN Comtrade — https://comtradeplus.un.org/</li>
