@@ -10,7 +10,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - `QUICKSTART.md` - 3-step onboarding (Install -> Run -> Get Report).
 - `tests/` - pytest suite covering YAML manifest, file presence, HTML
   templates, generation pipeline (3 languages), Quick Mode flag, and a
-  trademark-regression guard.
+  brand-compliance guard (`tests/test_brand_compliance.py`) that keeps
+  the methodology positioned as **Big 4 consulting firms** without
+  naming any specific firm.
 - `mcp-server/` - bundled MCP server exposing 4 tools (`get_country_macro`,
   `get_trade_data`, `search_market_data`, `generate_report`).
 - `.claude-plugin/plugin.json` - Claude Code plugin manifest pointing at

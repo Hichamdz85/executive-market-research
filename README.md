@@ -159,7 +159,7 @@ The full layout (header, footer, charts, tables, SWOT) flips for RTL automatical
 
 ## Research methodology
 
-This skill enforces the **7 Golden Rules** of Khelifi Consulting's professional consulting methodology:
+This skill enforces the **7 Golden Rules** used by **Big 4 consulting firms** - codified into Khelifi Consulting's research methodology:
 
 1. **Triangulation** — every key number from 3+ independent sources
 2. **Freshness** — prioritise data <18 months old
