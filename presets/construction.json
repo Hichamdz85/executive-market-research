@@ -1,0 +1,67 @@
+{
+  "sector": "construction",
+  "label": "Construction, building materials and infrastructure",
+  "common_hs_codes": [
+    {
+      "code": "2523",
+      "label": "Cement"
+    },
+    {
+      "code": "7214",
+      "label": "Bars and rods of iron or non-alloy steel"
+    },
+    {
+      "code": "7308",
+      "label": "Structures of iron or steel"
+    },
+    {
+      "code": "6810",
+      "label": "Articles of cement or concrete"
+    },
+    {
+      "code": "8419",
+      "label": "HVAC, refrigeration and air-conditioning equipment"
+    },
+    {
+      "code": "8474",
+      "label": "Machinery for sorting, screening, washing, crushing earth/stone"
+    }
+  ],
+  "specialized_sources": [
+    {
+      "name": "Oxford Economics Global Construction Outlook",
+      "url": "https://www.oxfordeconomics.com/"
+    },
+    {
+      "name": "Global Construction Perspectives",
+      "url": "https://www.globalconstruction2030.com/"
+    },
+    {
+      "name": "MEED Middle East projects pipeline",
+      "url": "https://www.meed.com/"
+    },
+    {
+      "name": "Cement Industry Federation",
+      "url": "https://cembureau.eu/"
+    },
+    {
+      "name": "World Steel Association",
+      "url": "https://worldsteel.org/"
+    }
+  ],
+  "interview_questions": [
+    "Which megaprojects (USD >100M) are scheduled in the next 24 months?",
+    "How dependent is the local market on imported reinforcement steel?",
+    "Which standards apply (ASTM, EN, GOST) and is local certification required?",
+    "What are typical payment terms for public-sector contracts?",
+    "Which freight corridors handle bulk cement and steel imports today?",
+    "How is currency exposure managed on multi-year construction contracts?"
+  ],
+  "key_indicators": [
+    "Construction value-add (% of GDP)",
+    "Cement consumption per capita",
+    "Public infrastructure spending (% of GDP)",
+    "Building permits issued",
+    "Real estate price index"
+  ]
+}

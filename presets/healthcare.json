@@ -1,0 +1,72 @@
+{
+  "sector": "healthcare",
+  "label": "Healthcare and medical devices",
+  "common_hs_codes": [
+    {
+      "code": "9018",
+      "label": "Medical, surgical, dental or veterinary instruments"
+    },
+    {
+      "code": "9019",
+      "label": "Mechano-therapy, massage, psychological aptitude apparatus"
+    },
+    {
+      "code": "9021",
+      "label": "Orthopaedic appliances, hearing aids, pacemakers"
+    },
+    {
+      "code": "9022",
+      "label": "X-ray and radiotherapy apparatus"
+    },
+    {
+      "code": "3004",
+      "label": "Medicaments (in measured doses or retail packaging)"
+    },
+    {
+      "code": "3006",
+      "label": "Pharmaceutical goods"
+    }
+  ],
+  "specialized_sources": [
+    {
+      "name": "WHO Global Health Observatory",
+      "url": "https://www.who.int/data/gho"
+    },
+    {
+      "name": "IQVIA market intelligence",
+      "url": "https://www.iqvia.com/"
+    },
+    {
+      "name": "EvaluatePharma pipeline",
+      "url": "https://www.evaluate.com/"
+    },
+    {
+      "name": "FDA approvals database",
+      "url": "https://www.fda.gov/drugs/development-approval-process-drugs"
+    },
+    {
+      "name": "EMA medicines database",
+      "url": "https://www.ema.europa.eu/en/medicines"
+    },
+    {
+      "name": "MedTech Europe industry briefs",
+      "url": "https://www.medtecheurope.org/"
+    }
+  ],
+  "interview_questions": [
+    "What proportion of demand is met by domestic production vs imports?",
+    "Which regulatory pathway applies (CE-MDR, FDA 510(k), local registration)?",
+    "Which hospital procurement bodies dominate (public tenders vs private chains)?",
+    "What reimbursement codes apply and how is pricing constrained?",
+    "What are typical lead times from order to delivery into the country?",
+    "Which distributors hold exclusive importer licences for the HS codes in scope?",
+    "How does counterfeit risk shape buyer behaviour for this product class?"
+  ],
+  "key_indicators": [
+    "Health expenditure (% of GDP)",
+    "Hospital beds per 1000",
+    "Physicians per 1000",
+    "Universal health coverage index",
+    "Pharma imports as % of pharma market"
+  ]
+}

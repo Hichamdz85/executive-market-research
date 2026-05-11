@@ -265,6 +265,22 @@ If this skill helped you ship a better deliverable, ⭐ the repo and reach out �
 </tr>
 </table>
 
+## نظرة عامة (بالعربية)
+
+**Executive Market Research** هي مهارة Claude مفتوحة المصدر تنتج تقارير دراسات سوق احترافية بصياغة تليق بالمؤسسات الاستشارية الدولية. التقرير يصدر في 35 إلى 45 صفحة (أو موجز تنفيذي مكثف من 8 إلى 10 صفحات في وضع `quick`)، بصيغة PDF و HTML تفاعلي، وبثلاث لغات: الإنجليزية والعربية (مع تنسيق RTL كامل) والفرنسية. كل رقم في التقرير مدعّم بثلاثة مصادر مستقلة على الأقل (UN Comtrade, World Bank, IMF, EIU). متاحة كـ Claude Code Plugin مع MCP Server مدمج.
+
+## Aperçu (en français)
+
+**Executive Market Research** est un skill Claude open-source qui génère des études de marché de niveau cabinet de conseil — 35 à 45 pages en mode complet, ou note de synthèse exécutive de 8 à 10 pages en mode `quick` — au format PDF et HTML interactif, en anglais, arabe (mise en page RTL complète) et français. Chaque chiffre est triangulé contre au moins trois sources indépendantes (UN Comtrade, Banque mondiale, FMI, EIU). Distribué comme Claude Code Plugin avec serveur MCP intégré.
+
+## Plugin / MCP server
+
+This repo doubles as a **Claude Code plugin** (`.claude-plugin/plugin.json`) and ships an **MCP server** (`mcp-server/server.py`) exposing four tools: `get_country_macro`, `get_trade_data`, `search_market_data`, `generate_report`. See [mcp-server/README.md](mcp-server/README.md).
+
+## Quickstart
+
+Three steps in five minutes - see [QUICKSTART.md](QUICKSTART.md).
+
 ## License
 
 MIT — use it, fork it, sell deliverables built with it. See [LICENSE](LICENSE).

@@ -1,0 +1,67 @@
+{
+  "sector": "food",
+  "label": "Food, beverage and agribusiness",
+  "common_hs_codes": [
+    {
+      "code": "1001",
+      "label": "Wheat and meslin"
+    },
+    {
+      "code": "1006",
+      "label": "Rice"
+    },
+    {
+      "code": "1701",
+      "label": "Cane or beet sugar"
+    },
+    {
+      "code": "1507",
+      "label": "Soya-bean oil"
+    },
+    {
+      "code": "0402",
+      "label": "Milk and cream, concentrated or sweetened"
+    },
+    {
+      "code": "2202",
+      "label": "Waters and non-alcoholic beverages"
+    }
+  ],
+  "specialized_sources": [
+    {
+      "name": "FAOSTAT",
+      "url": "https://www.fao.org/faostat/"
+    },
+    {
+      "name": "USDA Foreign Agricultural Service",
+      "url": "https://www.fas.usda.gov/"
+    },
+    {
+      "name": "International Grains Council",
+      "url": "https://www.igc.int/"
+    },
+    {
+      "name": "OECD-FAO Agricultural Outlook",
+      "url": "https://www.agri-outlook.org/"
+    },
+    {
+      "name": "Mintel and Euromonitor consumer reports",
+      "url": "https://www.mintel.com/"
+    }
+  ],
+  "interview_questions": [
+    "What share of cereal demand is met by state procurement vs private importers?",
+    "Which subsidies or price controls apply to staple foods this year?",
+    "How does seasonality and Ramadan demand affect import scheduling?",
+    "What halal certification regime is required for animal products?",
+    "Which retail chains and wholesale markets dominate distribution?",
+    "What are typical shelf-life and cold-chain expectations for the product?"
+  ],
+  "key_indicators": [
+    "Agricultural value-add (% of GDP)",
+    "Food import dependency ratio",
+    "Per-capita protein and cereal consumption",
+    "Self-sufficiency ratio for staples",
+    "Food CPI YoY"
+  ]
+}

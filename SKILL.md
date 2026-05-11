@@ -1,12 +1,15 @@
 ---
 name: executive-market-research
-description: Generate executive-grade market research reports, feasibility studies, and market entry assessments in professional consulting style. Use this skill when the user asks for market research, market study, market analysis, market sizing (TAM/SAM/SOM), competitive landscape, industry report, sector study, country market entry assessment, feasibility study, business intelligence brief, export feasibility, import opportunity analysis, or any structured data-driven market report. Triggers on phrases like "market research for [product]", "market study for [country]", "analyze the [industry] market in [country]", "research the [sector] in [region]", "feasibility of exporting [product] to [market]", "investment thesis for [sector]", "competitive landscape in [market]", "market entry strategy for [country]", "TAM analysis for [product]", "import opportunity for [product] in [country]", "business case for [sector]", "build me a market report", "I need a professional market study", "consultancy-grade research on [topic]". Produces both PDF (professional, branded, A4 landscape) and interactive HTML reports in **Arabic, English, or French** based on user preference. Conducts live web research with Khelifi Consulting-grade methodology — triangulation rule (3+ sources per number), freshness rule (<18 months), multilingual search, official-sources-first hierarchy. Output mirrors the structure used by Khelifi Consulting, Deloitte, McKinsey, BCG, and PwC — with 9 sections: methodology, country macro overview, executive summary, market review (demand-side), import characteristics (supply-side), regulatory aspects, competitive landscape, conclusion + SWOT + recommendations, and appendix. Includes country flag, KPI dashboard, charts (Chart.js), tables, and source citations.
+description: Generate executive-grade market research reports - full (35-45 pages) or Executive Brief (8-10 pages, quick mode) - for any product, sector or country. Triangulated sources from UN Comtrade, World Bank, IMF, EIU. Outputs PDF + interactive HTML in English, Arabic (RTL), or French. Use for market sizing (TAM/SAM/SOM), feasibility studies, market entry assessments, competitive landscapes, import-opportunity analyses, investment theses.
 license: MIT
-version: 1.2.0
+version: 2.0.0
 author: Khelifi Consulting
 contact: info@khelificonsulting.com
 website: https://khelificonsulting.com
 repository: https://github.com/Hichamdz85/executive-market-research
+languages: [en, ar, fr]
+modes: [full, quick]
+keywords: [market-research, feasibility-study, mena, claude-skill, claude-code-plugin, mcp-server, consulting, pdf-report, business-intelligence, trade-analysis]
 ---
 
 > **Built by [Khelifi Consulting](https://khelificonsulting.com)** · `info@khelificonsulting.com`
@@ -27,6 +30,25 @@ Use this skill whenever the user requests:
 - Business intelligence briefings for investment decisions
 
 Do **not** use this skill for: simple Q&A about a market, blog posts, or marketing copy. Those are different tasks.
+
+## Modes
+
+The skill supports two output sizes. Pick based on the audience and decision urgency.
+
+| Mode | Pages | When to use | How to invoke |
+|------|-------|-------------|---------------|
+| **Full** (default) | 35-45 | Board pack, investor due diligence, market entry decision | *"Use executive-market-research for [product] in [country]"* |
+| **Quick** (Executive Brief) | 8-10 | Pre-read for a meeting, internal scoping, go/no-go gate | *"Use executive-market-research in **quick mode** for [product] in [country]"* |
+
+Quick mode produces sections I (Methodology), II (Country macro - condensed),
+III (Executive summary), IV (Market sizing), VIII (SWOT + recommendations).
+It skips: full import deep-dive, regulatory chapter, competitive profiles,
+appendix. Triangulation rules and source quality bar are unchanged - the
+brief is shorter but no less rigorous.
+
+When invoked from the bundled MCP server, set `quick=True` in the
+`generate_report` tool call.
+
 
 ## Core workflow (follow in order)
 
@@ -264,10 +286,10 @@ Common follow-ups and how to handle them:
 
 ## Reference files to consult before each engagement
 
-1. `reference/report_structure.md` — read first when starting a new report
-2. `reference/data_sources.md` — when researching specific data points
-3. `reference/quality_standards.md` — before delivering to the user
-4. `reference/research_methodology.md` — when the user asks how the research was conducted
+1. `reference/report_structure.md` - read first when starting a new report
+2. `reference/data_sources.md` - when researching specific data points
+3. `reference/quality_standards.md` - before delivering to the user
+4. `reference/research_methodology.md` - when the user asks how the research was conducted
 
 ---
 

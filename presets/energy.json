@@ -1,0 +1,67 @@
+{
+  "sector": "energy",
+  "label": "Energy, oil, gas and renewables",
+  "common_hs_codes": [
+    {
+      "code": "2709",
+      "label": "Petroleum oils, crude"
+    },
+    {
+      "code": "2710",
+      "label": "Petroleum oils, other than crude"
+    },
+    {
+      "code": "2711",
+      "label": "Petroleum gases (LNG, LPG)"
+    },
+    {
+      "code": "8541",
+      "label": "Photovoltaic cells and modules"
+    },
+    {
+      "code": "8502",
+      "label": "Electric generating sets and rotary converters"
+    },
+    {
+      "code": "8504",
+      "label": "Electrical transformers, static converters, inductors"
+    }
+  ],
+  "specialized_sources": [
+    {
+      "name": "International Energy Agency",
+      "url": "https://www.iea.org/"
+    },
+    {
+      "name": "IRENA renewables statistics",
+      "url": "https://www.irena.org/Statistics"
+    },
+    {
+      "name": "BP Statistical Review of World Energy",
+      "url": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+    },
+    {
+      "name": "BloombergNEF",
+      "url": "https://about.bnef.com/"
+    },
+    {
+      "name": "OPEC Annual Statistical Bulletin",
+      "url": "https://www.opec.org/opec_web/en/publications/202.htm"
+    }
+  ],
+  "interview_questions": [
+    "What share of electricity comes from renewables vs fossil fuels today?",
+    "Which auctions or PPAs are scheduled for utility-scale solar/wind?",
+    "How are fuel subsidies structured and who bears them?",
+    "Which transmission upgrades unlock the biggest renewable additions?",
+    "What is the regulatory pathway for an IPP (Independent Power Producer)?",
+    "How is gas import dependency expected to evolve over 5-10 years?"
+  ],
+  "key_indicators": [
+    "Energy intensity (kgoe per USD GDP)",
+    "Electricity access (%)",
+    "Renewable share of generation (%)",
+    "Per-capita electricity consumption",
+    "Crude production and refining capacity"
+  ]
+}

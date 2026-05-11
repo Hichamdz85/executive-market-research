@@ -370,9 +370,23 @@ def main() -> int:
     parser.add_argument("--language", default="en", choices=["en", "ar", "fr"], help="Report language")
     parser.add_argument("--output", default="./output", help="Output directory")
     parser.add_argument("--no-pdf", action="store_true", help="Skip PDF generation")
+    parser.add_argument("--quick", action="store_true", help="Quick mode (Executive Brief, 8-10 pages)")
     args = parser.parse_args()
 
+    # Quick mode marker - propagated to the engagement so templates and
+    # downstream tooling can react. Trimming sections is the responsibility
+    # of the calling pipeline (Claude composes a smaller engagement.json).
+    quick_mode = bool(args.quick)
+
     eng = Engagement.from_json(args.data)
+    if quick_mode:
+        # Quick Mode: trim optional deep-dive sections at runtime so the
+        # full pipeline still works against any engagement JSON.
+        eng.imports = {}
+        eng.regulatory = {}
+        eng.competitive = {}
+        eng.appendix = {}
+        print('[quick mode] Executive Brief - 4 deep-dive sections trimmed')
     gen = ReportGenerator(eng, language=args.language)
 
     out = Path(args.output)

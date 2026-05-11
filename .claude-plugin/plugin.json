@@ -1,0 +1,52 @@
+{
+  "$schema": "https://claude.ai/schemas/plugin.json",
+  "name": "executive-market-research",
+  "version": "2.0.0",
+  "description": "Investor-grade market research reports (full 35-page or 8-page Executive Brief) with triangulated sources, in PDF + HTML, in English/Arabic/French.",
+  "author": {
+    "name": "Khelifi Consulting",
+    "email": "info@khelificonsulting.com",
+    "url": "https://khelificonsulting.com"
+  },
+  "homepage": "https://hichamdz85.github.io/executive-market-research/",
+  "repository": "https://github.com/Hichamdz85/executive-market-research",
+  "license": "MIT",
+  "keywords": [
+    "market-research",
+    "feasibility-study",
+    "claude-skill",
+    "claude-code-plugin",
+    "mcp-server",
+    "business-intelligence",
+    "trade-analysis",
+    "pdf-report",
+    "mena",
+    "north-africa"
+  ],
+  "skills": [
+    {
+      "path": "SKILL.md"
+    }
+  ],
+  "mcpServers": {
+    "executive-market-research": {
+      "command": "python3",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/mcp-server/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "${CLAUDE_PLUGIN_ROOT}"
+      }
+    }
+  },
+  "presets": {
+    "directory": "presets",
+    "available": [
+      "healthcare",
+      "construction",
+      "food",
+      "automotive",
+      "energy"
+    ]
+  }
+}

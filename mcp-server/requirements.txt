@@ -1,0 +1,3 @@
+# Executive Market Research - MCP Server dependencies
+mcp>=1.0
+httpx>=0.25

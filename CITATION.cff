@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "Executive Market Research"
+message: "If you use this skill in research or commercial work, please cite it."
+type: software
+authors:
+  - family-names: Khelifi
+    given-names: Hichem
+    affiliation: "Khelifi Consulting"
+    email: info@khelificonsulting.com
+    website: "https://khelificonsulting.com"
+repository-code: "https://github.com/Hichamdz85/executive-market-research"
+url: "https://hichamdz85.github.io/executive-market-research/"
+abstract: >-
+  An open-source Claude skill that produces investor-grade market research
+  reports - in PDF and interactive HTML - for any product, sector, or country,
+  in English, Arabic (RTL), or French. Built on a triangulated 7-rule
+  research methodology with live web sources (UN Comtrade, World Bank, IMF,
+  EIU). Distributed as a Claude Code plugin with bundled MCP server.
+license: MIT
+version: "2.0.0"
+keywords:
+  - market-research
+  - feasibility-study
+  - claude-skill
+  - claude-code-plugin
+  - mcp-server
+  - business-intelligence
+  - trade-analysis
+  - pdf-report
+  - mena
+  - north-africa

@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  validate:
-    name: Validate skill
+  test:
+    name: Validate skill and run pytest suite
     runs-on: ubuntu-latest
 
     steps:
@@ -19,74 +19,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate SKILL.md frontmatter
+      - name: Install dependencies
         run: |
-          python3 - <<'EOF'
-          import re, sys, pathlib
-          content = pathlib.Path('SKILL.md').read_text(encoding='utf-8')
-          m = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
-          if not m:
-              print('FAIL: SKILL.md has no YAML frontmatter')
-              sys.exit(1)
-          fm = m.group(1)
-          required = ['name', 'description', 'license', 'version']
-          for key in required:
-              if not re.search(rf'^{key}:', fm, re.MULTILINE):
-                  print(f'FAIL: missing required frontmatter field: {key}')
-                  sys.exit(1)
-          print('✓ SKILL.md frontmatter valid')
-          EOF
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Validate engagement JSON
-        run: |
-          python3 -c "
-          import json, pathlib
-          for f in pathlib.Path('examples').glob('*.json'):
-              data = json.loads(f.read_text(encoding='utf-8'))
-              required = ['product_name','country_name','country_iso2','report_date','author_name']
-              missing = [k for k in required if k not in data]
-              assert not missing, f'{f}: missing fields {missing}'
-              print(f'✓ {f.name}')
-          "
-
-      - name: Validate HTML templates
-        run: |
-          python3 - <<'EOF'
-          import pathlib, re, sys
-          ok = True
-          for f in pathlib.Path('templates').glob('report_*.html'):
-              html = f.read_text(encoding='utf-8')
-              required_placeholders = [
-                  '{{PRODUCT_NAME}}', '{{COUNTRY_NAME}}', '{{REPORT_DATE}}',
-                  '{{AUTHOR_LOGO}}', '{{FLAG_URL}}', '{{CHART_CONFIGS}}',
-              ]
-              missing = [p for p in required_placeholders if p not in html]
-              if missing:
-                  print(f'✗ {f.name}: missing placeholders {missing}')
-                  ok = False
-              else:
-                  print(f'✓ {f.name}')
-          sys.exit(0 if ok else 1)
-          EOF
-
-      - name: Smoke-test report generation (HTML only)
-        run: |
-          python3 scripts/generate_report.py \
-            --data examples/sample_engagement.json \
-            --language en \
-            --output ./output/ \
-            --no-pdf
-          test -f ./output/report_en.html
-          echo "✓ HTML generated successfully"
-
-      - name: Verify all 3 languages render
-        run: |
-          for lang in en ar fr; do
-            python3 scripts/generate_report.py \
-              --data examples/sample_engagement.json \
-              --language $lang \
-              --output ./output/ \
-              --no-pdf
-            test -f ./output/report_$lang.html
-            echo "✓ $lang: ok"
-          done
+      - name: Run pytest suite
+        run: pytest -v --tb=short

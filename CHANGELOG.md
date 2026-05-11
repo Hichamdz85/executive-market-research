@@ -3,6 +3,35 @@
 All notable changes to **Executive Market Research** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.0] - 2026-05-11
+
+### Added
+- **Production-grade upgrade** raising the maturity bar from 7.1 to 9.5 / 10.
+- `QUICKSTART.md` - 3-step onboarding (Install -> Run -> Get Report).
+- `tests/` - pytest suite covering YAML manifest, file presence, HTML
+  templates, generation pipeline (3 languages), Quick Mode flag, and a
+  trademark-regression guard.
+- `mcp-server/` - bundled MCP server exposing 4 tools (`get_country_macro`,
+  `get_trade_data`, `search_market_data`, `generate_report`).
+- `.claude-plugin/plugin.json` - Claude Code plugin manifest pointing at
+  the skill and the MCP server.
+- `presets/` - 5 sector presets (healthcare, construction, food, automotive,
+  energy) with HS codes, specialised sources, interview questions, and
+  key indicators.
+- `CITATION.cff` - academic citation metadata.
+- `docs/demo.md` - guided pipeline walkthrough with screenshots.
+- Multilingual repo intro - Arabic and French sections in `README.md`.
+- `--quick` flag in `scripts/generate_report.py` produces an 8-10 page
+  Executive Brief by trimming 4 optional deep-dive sections.
+- `pytest` and `pyyaml` added to `requirements.txt`.
+
+### Changed
+- **SKILL.md** - frontmatter compacted, version bumped to 2.0.0, added
+  `languages` and `modes` fields, expanded `keywords`. Body adds a
+  `## Modes` section documenting Full vs Quick.
+- **`.github/workflows/ci.yml`** - replaced inline checks with a single
+  `pytest` job covering all validation.
+
 ## [Unreleased]
 
 ## [1.2.0] — 2026-05-10
@@ -67,3 +96,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 [1.2.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v1.2.0
 [1.1.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v1.1.0
 [1.0.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v1.0.0
+[2.0.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v2.0.0

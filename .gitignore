@@ -23,3 +23,13 @@ Thumbs.db
 *.log
 .cache/
 node_modules/
+
+# Local rebuild venv (used by maintainer scripts)
+.venv-rebuild/
+
+# Claude-flow / Ruvector cache
+.claude-flow/
+ruvector.db
+
+# pytest
+.pytest_cache/

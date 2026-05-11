@@ -1,0 +1,67 @@
+{
+  "sector": "automotive",
+  "label": "Automotive vehicles, components and aftermarket",
+  "common_hs_codes": [
+    {
+      "code": "8703",
+      "label": "Motor cars and other motor vehicles, principally for transport of persons"
+    },
+    {
+      "code": "8704",
+      "label": "Motor vehicles for transport of goods"
+    },
+    {
+      "code": "8708",
+      "label": "Parts and accessories of motor vehicles"
+    },
+    {
+      "code": "4011",
+      "label": "New pneumatic tyres of rubber"
+    },
+    {
+      "code": "8507",
+      "label": "Electric accumulators (incl. EV batteries)"
+    },
+    {
+      "code": "8501",
+      "label": "Electric motors and generators"
+    }
+  ],
+  "specialized_sources": [
+    {
+      "name": "S&P Global Mobility (formerly LMC Automotive)",
+      "url": "https://www.spglobal.com/mobility/"
+    },
+    {
+      "name": "OICA International Organization of Motor Vehicle Manufacturers",
+      "url": "https://www.oica.net/"
+    },
+    {
+      "name": "JATO Dynamics market data",
+      "url": "https://www.jato.com/"
+    },
+    {
+      "name": "BloombergNEF EV outlook",
+      "url": "https://about.bnef.com/electric-vehicle-outlook/"
+    },
+    {
+      "name": "AAA Africa and ACEA Europe",
+      "url": "https://www.acea.auto/"
+    }
+  ],
+  "interview_questions": [
+    "What import duty tier applies (engine size, EV vs ICE, age of vehicle)?",
+    "Are there local assembly incentives or required local-content ratios?",
+    "Which OEMs hold dealer-network exclusivity in the country?",
+    "How is EV charging infrastructure progressing and who funds it?",
+    "What is the typical age of the on-road fleet and replacement cycle?",
+    "Which financing/leasing structures dominate retail purchases?"
+  ],
+  "key_indicators": [
+    "New vehicle sales per 1000 inhabitants",
+    "Vehicle parc per capita",
+    "EV penetration (% of new sales)",
+    "Average age of fleet",
+    "Local assembly capacity vs imports"
+  ]
+}
