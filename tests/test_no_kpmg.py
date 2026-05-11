@@ -18,8 +18,13 @@ def _tracked_files(repo_root):
 
 def test_no_kpmg_in_tracked_text_files(repo_root):
     hits = []
+    self_path = (repo_root / __file__).resolve()
     for f in _tracked_files(repo_root):
         if not f.is_file() or f.suffix.lower() in BINARY_EXTS:
+            continue
+        # skip this test file itself - it intentionally references the
+        # forbidden terms to define the regression-guard regex
+        if f.resolve() == self_path:
             continue
         try:
             text = f.read_text(encoding="utf-8")
