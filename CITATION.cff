@@ -17,7 +17,7 @@ abstract: >-
   research methodology with live web sources (UN Comtrade, World Bank, IMF,
   EIU). Distributed as a Claude Code plugin with bundled MCP server.
 license: MIT
-version: "2.0.0"
+version: "2.1.0"
 keywords:
   - market-research
   - feasibility-study

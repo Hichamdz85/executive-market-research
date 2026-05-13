@@ -9,6 +9,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .venv/
+.venv-eval/
 venv/
 env/
 *.egg-info/
@@ -22,7 +23,9 @@ Thumbs.db
 # Misc
 *.log
 .cache/
+dist/
 node_modules/
+.serena/
 
 # Local rebuild venv (used by maintainer scripts)
 .venv-rebuild/

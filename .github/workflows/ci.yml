@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    name: Validate skill and run pytest suite
+  html-smoke-and-tests:
+    name: HTML smoke + pytest
     runs-on: ubuntu-latest
 
     steps:
@@ -26,3 +26,61 @@ jobs:
 
       - name: Run pytest suite
         run: pytest -v --tb=short
+
+  pdf-smoke:
+    name: PDF smoke
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies and browser
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Render sample PDF
+        run: |
+          python scripts/generate_report.py \
+            --data examples/sample_engagement.json \
+            --language en \
+            --output output/pdf-smoke
+          test -s output/pdf-smoke/report_en.pdf
+
+  mcp-smoke:
+    name: MCP smoke
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install MCP test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pyyaml
+          pip install -r mcp-server/requirements.txt
+
+      - name: Run MCP tests
+        run: pytest -v tests/test_mcp_server.py --tb=short
+
+  link-check:
+    name: Link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress --accept 200,204,206,429 README.md QUICKSTART.md docs/demo.md reference/*.md
+          fail: false

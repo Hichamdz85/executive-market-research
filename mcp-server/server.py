@@ -27,16 +27,26 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 mcp = FastMCP("executive-market-research")
 
-# Minimal ISO2 -> ISO3 map (extend in production via pycountry).
-_ISO2_TO_ISO3 = {
-    "DZ": "DZA", "MA": "MAR", "TN": "TUN", "EG": "EGY",
-    "SA": "SAU", "AE": "ARE", "QA": "QAT", "KW": "KWT",
-    "BH": "BHR", "OM": "OMN", "JO": "JOR", "LB": "LBN",
-    "FR": "FRA", "BE": "BEL", "DE": "DEU", "IT": "ITA",
-    "ES": "ESP", "GB": "GBR", "US": "USA", "CN": "CHN",
-    "JP": "JPN", "TR": "TUR", "IN": "IND", "BR": "BRA",
-    "ZA": "ZAF", "NG": "NGA", "KE": "KEN",
+# Minimal ISO2 -> UN Comtrade numeric reporter/partner code map.
+# Extend in production via the official Comtrade reference table.
+_ISO2_TO_COMTRADE = {
+    "DZ": "12", "MA": "504", "TN": "788", "EG": "818",
+    "SA": "682", "AE": "784", "QA": "634", "KW": "414",
+    "BH": "48", "OM": "512", "JO": "400", "LB": "422",
+    "FR": "251", "BE": "56", "DE": "276", "IT": "381",
+    "ES": "724", "GB": "826", "US": "842", "CN": "156",
+    "JP": "392", "TR": "792", "IN": "699", "BR": "76",
+    "ZA": "710", "NG": "566", "KE": "404",
 }
+
+
+def _comtrade_code(value: str) -> str:
+    value = str(value).strip().upper()
+    if value in {"0", "WORLD", "ALL"}:
+        return "0"
+    if value.isdigit():
+        return value
+    return _ISO2_TO_COMTRADE.get(value, value)
 
 
 @mcp.tool()
@@ -101,39 +111,50 @@ async def get_trade_data(
     Returns:
         Dict with rows and a count, or an error.
     """
-    rep = _ISO2_TO_ISO3.get(reporter_iso2.upper(), reporter_iso2.upper())
-    par = "0" if partner_iso2 == "0" else _ISO2_TO_ISO3.get(
-        partner_iso2.upper(), partner_iso2.upper()
-    )
+    rep = _comtrade_code(reporter_iso2)
+    par = _comtrade_code(partner_iso2)
     end_year = datetime.date.today().year - 1
-    period = ",".join(str(y) for y in range(end_year - years + 1, end_year + 1))
-    url = "https://comtradeapi.un.org/public/v1/preview/HS"
-    params = {
+    periods = [str(y) for y in range(end_year - years + 1, end_year + 1)]
+    url = "https://comtradeapi.un.org/public/v1/preview/C/A/HS"
+    base_params = {
         "reporterCode": rep,
         "partnerCode": par,
         "cmdCode": hs_code,
-        "period": period,
         "flowCode": flow,
-        "freqCode": "A",
+        "maxRecords": "500",
+        "includeDesc": "true",
+        "breakdownMode": "classic",
     }
-    async with httpx.AsyncClient(timeout=60) as client:
-        try:
-            resp = await client.get(url, params=params)
-            data = resp.json()
-        except Exception as e:
-            return {"error": str(e), "params": params}
     rows = []
-    for r in data.get("data", []):
-        rows.append({
-            "year": r.get("period"),
-            "reporter": r.get("reporterDesc"),
-            "partner": r.get("partnerDesc"),
-            "hs_code": r.get("cmdCode"),
-            "value_usd": r.get("primaryValue"),
-            "qty": r.get("qty"),
-            "qty_unit": r.get("qtyUnitAbbr"),
-        })
-    return {"rows": rows, "count": len(rows), "params": params}
+    errors = []
+    async with httpx.AsyncClient(timeout=60) as client:
+        for period in periods:
+            params = {**base_params, "period": period}
+            try:
+                resp = await client.get(url, params=params)
+                resp.raise_for_status()
+                data = resp.json()
+            except Exception as e:
+                errors.append({"period": period, "error": str(e), "params": params})
+                continue
+            for r in data.get("data", []):
+                rows.append({
+                    "year": r.get("refYear") or r.get("period"),
+                    "reporter": r.get("reporterDesc"),
+                    "partner": r.get("partnerDesc"),
+                    "hs_code": r.get("cmdCode"),
+                    "hs_description": r.get("cmdDesc"),
+                    "value_usd": r.get("primaryValue"),
+                    "qty": r.get("qty"),
+                    "qty_unit": r.get("qtyUnitAbbr"),
+                })
+    return {
+        "rows": rows,
+        "count": len(rows),
+        "errors": errors,
+        "params": {**base_params, "periods": periods},
+        "endpoint": url,
+    }
 
 
 @mcp.tool()

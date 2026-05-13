@@ -3,6 +3,37 @@
 All notable changes to **Executive Market Research** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+## [2.1.0] - 2026-05-13
+
+### Added
+- `scripts/build_engagement.py` to create a research-ready engagement JSON
+  from `--product`, `--country`, and `--language` inputs.
+- Standalone CLI support for `--product` / `--country` in
+  `scripts/generate_report.py`, while retaining `--data` rendering.
+- `data.json` output on every render for downstream workflows.
+- HTML escaping across rendered report content to prevent raw user input from
+  being injected into templates.
+- MCP mock test coverage for UN Comtrade request construction.
+- CI jobs for HTML smoke tests, PDF smoke rendering, MCP smoke tests, and
+  markdown link checking.
+- Release workflow that builds a clean ZIP package, sample PDFs/HTML files,
+  and a short demo GIF for tagged GitHub releases.
+- `scripts/package_release.py` and `scripts/create_demo_gif.py` for release
+  asset generation.
+
+### Fixed
+- UN Comtrade MCP tool now uses the public preview endpoint shape
+  `/public/v1/preview/C/A/HS` and numeric Comtrade country codes.
+- PDF rendering now falls back cleanly from Playwright to WeasyPrint and keeps
+  the HTML report when PDF generation is unavailable.
+- Chart data labels now load and register the Chart.js datalabels plugin.
+
+### Changed
+- README, QUICKSTART, and SKILL docs now distinguish between a research
+  scaffold and a fully researched client-ready report.
+
 ## [2.0.0] - 2026-05-11
 
 ### Added
@@ -33,8 +64,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
   `## Modes` section documenting Full vs Quick.
 - **`.github/workflows/ci.yml`** - replaced inline checks with a single
   `pytest` job covering all validation.
-
-## [Unreleased]
 
 ## [1.2.0] — 2026-05-10
 
@@ -94,7 +123,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - GitHub Pages landing site
 - MIT license
 
-[Unreleased]: https://github.com/Hichamdz85/executive-market-research/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/Hichamdz85/executive-market-research/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/Hichamdz85/executive-market-research/compare/v2.0.0...v2.1.0
 [1.2.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v1.2.0
 [1.1.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v1.1.0
 [1.0.0]: https://github.com/Hichamdz85/executive-market-research/releases/tag/v1.0.0

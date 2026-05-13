@@ -11,7 +11,9 @@ REQUIRED = [
     "templates/report_en.html", "templates/report_ar.html",
     "templates/report_fr.html", "templates/styles.css",
     # scripts
-    "scripts/generate_report.py", "scripts/fetch_assets.py",
+    "scripts/generate_report.py", "scripts/build_engagement.py",
+    "scripts/fetch_assets.py", "scripts/package_release.py",
+    "scripts/create_demo_gif.py",
     # reference (note renamed playbook)
     "reference/khelifi_research_playbook.md",
     "reference/report_structure.md",
@@ -28,6 +30,8 @@ REQUIRED = [
     "presets/food.json", "presets/automotive.json", "presets/energy.json",
     # docs
     "docs/demo.md",
+    # workflows
+    ".github/workflows/ci.yml", ".github/workflows/release.yml",
 ]
 
 

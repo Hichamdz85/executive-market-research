@@ -103,19 +103,40 @@ You:    receive the deliverable, ready to send to a board / investor / client.
 
 ### Option B — Run the generator standalone
 
-If you already have an `engagement.json` data file, you can render directly:
+Create a research-ready scaffold from only a product and country:
 
 ```bash
-pip install playwright
+pip install -r requirements.txt
 playwright install chromium
 
+python scripts/generate_report.py \
+  --product "HVAC accessories" \
+  --country "Algeria" \
+  --language en \
+  --output ./output/
+```
+
+You'll get `output/engagement_en.json`, `output/data.json`,
+`output/report_en.html`, and `output/report_en.pdf`.
+
+If you already have a researched `engagement.json` file, render directly:
+
+```bash
 python scripts/generate_report.py \
   --data examples/sample_engagement.json \
   --language en \
   --output ./output/
 ```
 
-You'll get `output/report_en.html` and `output/report_en.pdf`.
+> The standalone scaffold is not a finished consulting study. Claude still
+> needs to complete live research and replace placeholders with cited,
+> triangulated evidence before client delivery.
+
+### Option C — Download a release ZIP
+
+Every tagged release publishes a clean ZIP, sample PDFs in English/Arabic/French,
+sample HTML files, and a short demo GIF on the
+[GitHub releases page](https://github.com/Hichamdz85/executive-market-research/releases).
 
 ## Languages
 
@@ -185,6 +206,7 @@ executive-market-research/
 │   └── styles.css                    ← Executive-grade design system
 ├── scripts/
 │   ├── generate_report.py            ← Main pipeline
+│   ├── build_engagement.py           ← Product/country scaffold builder
 │   └── fetch_assets.py               ← Country flags + section images
 ├── assets/
 │   └── icons/                        ← SVG icons (executive-grade line art)
@@ -280,6 +302,15 @@ This repo doubles as a **Claude Code plugin** (`.claude-plugin/plugin.json`) and
 ## Quickstart
 
 Three steps in five minutes - see [QUICKSTART.md](QUICKSTART.md).
+
+## Release assets
+
+Tagged releases automatically build:
+
+- `executive-market-research-vX.Y.Z.zip` - clean downloadable skill package
+- `sample-report-en.pdf`, `sample-report-ar.pdf`, `sample-report-fr.pdf`
+- matching sample HTML files
+- `executive-market-research-demo.gif`
 
 ## License
 

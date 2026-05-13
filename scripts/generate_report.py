@@ -25,13 +25,15 @@ License: MIT
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
-import os
 import re
 import sys
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
+
+from build_engagement import build_engagement
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES = ROOT / "templates"
@@ -72,8 +74,12 @@ class Engagement:
 # Template helpers
 # ---------------------------------------------------------------------------
 
+def esc(value: Any) -> str:
+    return html_lib.escape(str(value), quote=True)
+
+
 def list_to_li(items: list[str]) -> str:
-    return "\n".join(f"<li>{x}</li>" for x in items)
+    return "\n".join(f"<li>{esc(x)}</li>" for x in items)
 
 
 def kv_pair(label: str, value: str, delta: str = "") -> dict:
@@ -82,16 +88,16 @@ def kv_pair(label: str, value: str, delta: str = "") -> dict:
 
 def regulatory_rows(rows: list[dict]) -> str:
     return "\n".join(
-        f"<tr><td>{r.get('item','')}</td><td>{r.get('detail','')}</td>"
-        f"<td>{r.get('source','')}</td></tr>"
+        f"<tr><td>{esc(r.get('item',''))}</td><td>{esc(r.get('detail',''))}</td>"
+        f"<td>{esc(r.get('source',''))}</td></tr>"
         for r in rows
     )
 
 
 def competitive_rows(rows: list[dict]) -> str:
     return "\n".join(
-        f"<tr><td>{r.get('player','')}</td><td>{r.get('hq','')}</td>"
-        f"<td>{r.get('tier','')}</td></tr>"
+        f"<tr><td>{esc(r.get('player',''))}</td><td>{esc(r.get('hq',''))}</td>"
+        f"<td>{esc(r.get('tier',''))}</td></tr>"
         for r in rows
     )
 
@@ -106,10 +112,10 @@ def recommendations_rows(rows: list[dict]) -> str:
             "Low": "priority-low",
         }.get(r.get("priority", ""), "")
         out.append(
-            f"<tr><td>{i}</td><td>{r.get('title','')}</td>"
-            f"<td class='{prio_class}'>{r.get('priority','')}</td>"
-            f"<td>{r.get('timeline','')}</td>"
-            f"<td>{r.get('impact','')}</td></tr>"
+            f"<tr><td>{i}</td><td>{esc(r.get('title',''))}</td>"
+            f"<td class='{prio_class}'>{esc(r.get('priority',''))}</td>"
+            f"<td>{esc(r.get('timeline',''))}</td>"
+            f"<td>{esc(r.get('impact',''))}</td></tr>"
         )
     return "\n".join(out)
 
@@ -124,7 +130,7 @@ new Chart(document.getElementById('{cid}'), {{
   data: {{
     labels: {labels},
     datasets: [{{
-      label: '{dlabel}',
+      label: {dlabel},
       data: {data},
       backgroundColor: {bg},
       borderColor: chartTheme.primary,
@@ -153,7 +159,7 @@ def make_chart(cid: str, ctype: str, labels: list, data: list, dlabel: str = "")
         bg = "[chartTheme.primary, chartTheme.secondary, chartTheme.accent, chartTheme.c3, chartTheme.c4, chartTheme.c5]"
     return CHART_TEMPLATE.format(
         cid=cid, ctype=ctype, labels=json.dumps(labels),
-        data=json.dumps(data), dlabel=dlabel, bg=bg,
+        data=json.dumps(data), dlabel=json.dumps(dlabel), bg=bg,
     )
 
 
@@ -220,54 +226,54 @@ class ReportGenerator:
         flag_url = f"https://flagcdn.com/{eng.country_iso2.lower()}.svg"
 
         substitutions = {
-            "{{REPORT_TITLE}}": f"{eng.product_name} — {eng.country_name}",
-            "{{PRODUCT_NAME}}": eng.product_name,
-            "{{COUNTRY_NAME}}": eng.country_name,
-            "{{REPORT_DATE}}": eng.report_date,
-            "{{AUTHOR_NAME}}": eng.author_name,
-            "{{AUTHOR_LOGO}}": eng.author_logo,
-            "{{HERO_IMAGE}}": eng.hero_image or eng.divider_images.get("market", ""),
-            "{{FLAG_URL}}": flag_url,
-            "{{FLAG_URL_LARGE}}": flag_url,
-            "{{COUNTRY_TAGLINE}}": eng.macro.get("tagline", ""),
+            "{{REPORT_TITLE}}": esc(f"{eng.product_name} — {eng.country_name}"),
+            "{{PRODUCT_NAME}}": esc(eng.product_name),
+            "{{COUNTRY_NAME}}": esc(eng.country_name),
+            "{{REPORT_DATE}}": esc(eng.report_date),
+            "{{AUTHOR_NAME}}": esc(eng.author_name),
+            "{{AUTHOR_LOGO}}": esc(eng.author_logo),
+            "{{HERO_IMAGE}}": esc(eng.hero_image or eng.divider_images.get("market", "")),
+            "{{FLAG_URL}}": esc(flag_url),
+            "{{FLAG_URL_LARGE}}": esc(flag_url),
+            "{{COUNTRY_TAGLINE}}": esc(eng.macro.get("tagline", "")),
             # Methodology
-            "{{METHODOLOGY_INTRO}}": eng.methodology.get("intro", ""),
+            "{{METHODOLOGY_INTRO}}": esc(eng.methodology.get("intro", "")),
             "{{METHODOLOGY_OBJECTIVES}}": list_to_li(eng.methodology.get("objectives", [])),
             "{{METHODOLOGY_SCOPE}}": list_to_li(eng.methodology.get("scope", [])),
-            "{{METHODOLOGY_APPROACH}}": eng.methodology.get("approach", ""),
-            "{{METHODOLOGY_SOURCES}}": eng.methodology.get("sources", ""),
-            "{{METHODOLOGY_LIMITATIONS}}": eng.methodology.get("limitations", ""),
+            "{{METHODOLOGY_APPROACH}}": esc(eng.methodology.get("approach", "")),
+            "{{METHODOLOGY_SOURCES}}": esc(eng.methodology.get("sources", "")),
+            "{{METHODOLOGY_LIMITATIONS}}": esc(eng.methodology.get("limitations", "")),
             # Macro KPIs
-            "{{KPI_POPULATION}}": eng.macro.get("population", "—"),
-            "{{KPI_POPULATION_DELTA}}": eng.macro.get("population_delta", ""),
-            "{{KPI_GDP}}": eng.macro.get("gdp", "—"),
-            "{{KPI_GDP_DELTA}}": eng.macro.get("gdp_delta", ""),
-            "{{KPI_GDP_PC}}": eng.macro.get("gdp_per_capita", "—"),
-            "{{KPI_GDP_PC_DELTA}}": eng.macro.get("gdp_per_capita_delta", ""),
-            "{{KPI_INFLATION}}": eng.macro.get("inflation", "—"),
-            "{{KPI_INFLATION_DELTA}}": eng.macro.get("inflation_delta", ""),
-            "{{KPI_FX}}": eng.macro.get("fx", "—"),
-            "{{KPI_FX_DELTA}}": eng.macro.get("fx_delta", ""),
-            "{{KPI_TRADE_BAL}}": eng.macro.get("trade_balance", "—"),
-            "{{KPI_TRADE_BAL_DELTA}}": eng.macro.get("trade_balance_delta", ""),
-            "{{KPI_RATING}}": eng.macro.get("rating", "—"),
-            "{{KPI_RATING_AGENCY}}": eng.macro.get("rating_agency", ""),
-            "{{KPI_EODB}}": eng.macro.get("eodb_rank", "—"),
-            "{{KPI_EODB_DELTA}}": eng.macro.get("eodb_delta", ""),
-            "{{MACRO_FINDING_HEADLINE}}": eng.macro.get("finding_headline", ""),
+            "{{KPI_POPULATION}}": esc(eng.macro.get("population", "—")),
+            "{{KPI_POPULATION_DELTA}}": esc(eng.macro.get("population_delta", "")),
+            "{{KPI_GDP}}": esc(eng.macro.get("gdp", "—")),
+            "{{KPI_GDP_DELTA}}": esc(eng.macro.get("gdp_delta", "")),
+            "{{KPI_GDP_PC}}": esc(eng.macro.get("gdp_per_capita", "—")),
+            "{{KPI_GDP_PC_DELTA}}": esc(eng.macro.get("gdp_per_capita_delta", "")),
+            "{{KPI_INFLATION}}": esc(eng.macro.get("inflation", "—")),
+            "{{KPI_INFLATION_DELTA}}": esc(eng.macro.get("inflation_delta", "")),
+            "{{KPI_FX}}": esc(eng.macro.get("fx", "—")),
+            "{{KPI_FX_DELTA}}": esc(eng.macro.get("fx_delta", "")),
+            "{{KPI_TRADE_BAL}}": esc(eng.macro.get("trade_balance", "—")),
+            "{{KPI_TRADE_BAL_DELTA}}": esc(eng.macro.get("trade_balance_delta", "")),
+            "{{KPI_RATING}}": esc(eng.macro.get("rating", "—")),
+            "{{KPI_RATING_AGENCY}}": esc(eng.macro.get("rating_agency", "")),
+            "{{KPI_EODB}}": esc(eng.macro.get("eodb_rank", "—")),
+            "{{KPI_EODB_DELTA}}": esc(eng.macro.get("eodb_delta", "")),
+            "{{MACRO_FINDING_HEADLINE}}": esc(eng.macro.get("finding_headline", "")),
             "{{MACRO_INSIGHTS}}": list_to_li(eng.macro.get("insights", [])),
             # Executive summary
-            "{{EXEC_PRODUCT_DEF}}": eng.executive_summary.get("product_def", ""),
-            "{{EXEC_DEMAND}}": eng.executive_summary.get("demand", ""),
-            "{{EXEC_SUPPLY}}": eng.executive_summary.get("supply", ""),
-            "{{EXEC_ATTRACTIVENESS}}": eng.executive_summary.get("attractiveness", ""),
+            "{{EXEC_PRODUCT_DEF}}": esc(eng.executive_summary.get("product_def", "")),
+            "{{EXEC_DEMAND}}": esc(eng.executive_summary.get("demand", "")),
+            "{{EXEC_SUPPLY}}": esc(eng.executive_summary.get("supply", "")),
+            "{{EXEC_ATTRACTIVENESS}}": esc(eng.executive_summary.get("attractiveness", "")),
             # Market
-            "{{MARKET_FINDING_HEADLINE}}": eng.market.get("finding_headline", ""),
-            "{{MARKET_VALUE_SOURCE}}": eng.market.get("value_source", ""),
-            "{{MARKET_VOLUME_SOURCE}}": eng.market.get("volume_source", ""),
+            "{{MARKET_FINDING_HEADLINE}}": esc(eng.market.get("finding_headline", "")),
+            "{{MARKET_VALUE_SOURCE}}": esc(eng.market.get("value_source", "")),
+            "{{MARKET_VOLUME_SOURCE}}": esc(eng.market.get("volume_source", "")),
             "{{MARKET_INSIGHTS}}": list_to_li(eng.market.get("insights", [])),
             # Imports
-            "{{IMPORTS_FINDING_HEADLINE}}": eng.imports.get("finding_headline", ""),
+            "{{IMPORTS_FINDING_HEADLINE}}": esc(eng.imports.get("finding_headline", "")),
             "{{IMPORTS_INSIGHTS}}": list_to_li(eng.imports.get("insights", [])),
             # Regulatory
             "{{REGULATORY_TABLE}}": regulatory_rows(eng.regulatory.get("rows", [])),
@@ -275,7 +281,7 @@ class ReportGenerator:
             # Competitive
             "{{COMPETITIVE_TABLE}}": competitive_rows(eng.competitive.get("rows", [])),
             "{{COMPETITIVE_INSIGHTS}}": list_to_li(eng.competitive.get("insights", [])),
-            "{{MARKET_SHARE_SOURCE}}": eng.competitive.get("market_share_source", ""),
+            "{{MARKET_SHARE_SOURCE}}": esc(eng.competitive.get("market_share_source", "")),
             # SWOT
             "{{SWOT_STRENGTHS}}": list_to_li(eng.swot.get("strengths", [])),
             "{{SWOT_WEAKNESSES}}": list_to_li(eng.swot.get("weaknesses", [])),
@@ -288,15 +294,15 @@ class ReportGenerator:
             "{{APPENDIX_HS_CODES}}": list_to_li(eng.appendix.get("hs_codes", [])),
             "{{APPENDIX_GLOSSARY}}": list_to_li(eng.appendix.get("glossary", [])),
             # Divider images
-            "{{DIVIDER_IMAGE_METHODOLOGY}}": eng.divider_images.get("methodology", ""),
-            "{{DIVIDER_IMAGE_COUNTRY}}": eng.divider_images.get("country", ""),
-            "{{DIVIDER_IMAGE_EXEC}}": eng.divider_images.get("exec", ""),
-            "{{DIVIDER_IMAGE_MARKET}}": eng.divider_images.get("market", ""),
-            "{{DIVIDER_IMAGE_IMPORTS}}": eng.divider_images.get("imports", ""),
-            "{{DIVIDER_IMAGE_REGULATORY}}": eng.divider_images.get("regulatory", ""),
-            "{{DIVIDER_IMAGE_COMPETITIVE}}": eng.divider_images.get("competitive", ""),
-            "{{DIVIDER_IMAGE_CONCLUSION}}": eng.divider_images.get("conclusion", ""),
-            "{{DIVIDER_IMAGE_APPENDIX}}": eng.divider_images.get("appendix", ""),
+            "{{DIVIDER_IMAGE_METHODOLOGY}}": esc(eng.divider_images.get("methodology", "")),
+            "{{DIVIDER_IMAGE_COUNTRY}}": esc(eng.divider_images.get("country", "")),
+            "{{DIVIDER_IMAGE_EXEC}}": esc(eng.divider_images.get("exec", "")),
+            "{{DIVIDER_IMAGE_MARKET}}": esc(eng.divider_images.get("market", "")),
+            "{{DIVIDER_IMAGE_IMPORTS}}": esc(eng.divider_images.get("imports", "")),
+            "{{DIVIDER_IMAGE_REGULATORY}}": esc(eng.divider_images.get("regulatory", "")),
+            "{{DIVIDER_IMAGE_COMPETITIVE}}": esc(eng.divider_images.get("competitive", "")),
+            "{{DIVIDER_IMAGE_CONCLUSION}}": esc(eng.divider_images.get("conclusion", "")),
+            "{{DIVIDER_IMAGE_APPENDIX}}": esc(eng.divider_images.get("appendix", "")),
             # Charts
             "{{CHART_CONFIGS}}": build_chart_block(eng),
         }
@@ -331,6 +337,7 @@ class ReportGenerator:
         html_path = Path(html_path).resolve()
         pdf_path = Path(pdf_path)
         pdf_path.parent.mkdir(parents=True, exist_ok=True)
+        playwright_error: Exception | None = None
         try:
             from playwright.sync_api import sync_playwright  # type: ignore
             with sync_playwright() as p:
@@ -345,18 +352,22 @@ class ReportGenerator:
                 )
                 browser.close()
             return pdf_path
-        except ImportError:
-            pass
+        except Exception as e:  # noqa: BLE001
+            playwright_error = e
 
         try:
             from weasyprint import HTML  # type: ignore
             HTML(str(html_path)).write_pdf(str(pdf_path))
             return pdf_path
-        except ImportError as e:
+        except Exception as e:  # noqa: BLE001
+            details = f"WeasyPrint: {e}"
+            if playwright_error is not None:
+                details = f"Playwright: {playwright_error}; {details}"
             raise RuntimeError(
-                "Neither Playwright nor WeasyPrint is installed. "
-                "Install one: `pip install playwright && playwright install chromium` "
-                "or `pip install weasyprint`."
+                "PDF generation failed. The HTML report was still generated. "
+                "Install a working Playwright browser (`python -m playwright install chromium`) "
+                "or install WeasyPrint (`pip install weasyprint`), then retry. "
+                f"Details: {details}"
             ) from e
 
 
@@ -366,7 +377,13 @@ class ReportGenerator:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate executive market research report.")
-    parser.add_argument("--data", required=True, help="Path to engagement JSON file")
+    parser.add_argument("--data", help="Path to engagement JSON file")
+    parser.add_argument("--product", help="Product, service, or sector to research")
+    parser.add_argument("--country", help="Target country or region")
+    parser.add_argument("--country-iso2", help="Optional ISO 3166-1 alpha-2 country override")
+    parser.add_argument("--sector", help="Optional preset: healthcare, construction, food, automotive, energy")
+    parser.add_argument("--author-name", default="Khelifi Consulting", help="Author/brand name for generated scaffolds")
+    parser.add_argument("--author-logo", default="../assets/icons/logo-mark.svg", help="Author logo path/URL for generated scaffolds")
     parser.add_argument("--language", default="en", choices=["en", "ar", "fr"], help="Report language")
     parser.add_argument("--output", default="./output", help="Output directory")
     parser.add_argument("--no-pdf", action="store_true", help="Skip PDF generation")
@@ -378,7 +395,31 @@ def main() -> int:
     # of the calling pipeline (Claude composes a smaller engagement.json).
     quick_mode = bool(args.quick)
 
-    eng = Engagement.from_json(args.data)
+    out = Path(args.output)
+    out.mkdir(parents=True, exist_ok=True)
+
+    if args.data:
+        eng = Engagement.from_json(args.data)
+    else:
+        if not args.product or not args.country:
+            parser.error("Provide either --data or both --product and --country.")
+        scaffold = build_engagement(
+            product=args.product,
+            country=args.country,
+            language=args.language,
+            country_iso2=args.country_iso2,
+            sector=args.sector,
+            author_name=args.author_name,
+            author_logo=args.author_logo,
+        )
+        engagement_path = out / f"engagement_{args.language}.json"
+        engagement_path.write_text(
+            json.dumps(scaffold, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        print(f"✓ Engagement scaffold written: {engagement_path}")
+        eng = Engagement(**scaffold)
+
     if quick_mode:
         # Quick Mode: trim optional deep-dive sections at runtime so the
         # full pipeline still works against any engagement JSON.
@@ -389,7 +430,10 @@ def main() -> int:
         print('[quick mode] Executive Brief - 4 deep-dive sections trimmed')
     gen = ReportGenerator(eng, language=args.language)
 
-    out = Path(args.output)
+    data_path = out / "data.json"
+    data_path.write_text(json.dumps(asdict(eng), indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"✓ Data written: {data_path}")
+
     html_path = gen.write_html(out / f"report_{args.language}.html")
     print(f"✓ HTML written: {html_path}")
 

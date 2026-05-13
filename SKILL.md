@@ -2,7 +2,7 @@
 name: executive-market-research
 description: Generate executive-grade market research reports - full (35-45 pages) or Executive Brief (8-10 pages, quick mode) - for any product, sector or country. Triangulated sources from UN Comtrade, World Bank, IMF, EIU. Outputs PDF + interactive HTML in English, Arabic (RTL), or French. Use for market sizing (TAM/SAM/SOM), feasibility studies, market entry assessments, competitive landscapes, import-opportunity analyses, investment theses.
 license: MIT
-version: 2.0.0
+version: 2.1.0
 author: Khelifi Consulting
 contact: info@khelificonsulting.com
 website: https://khelificonsulting.com
@@ -177,6 +177,20 @@ This produces:
 - `report.pdf` — print-ready PDF (executive-grade, A4 landscape, branded)
 - `data.json` — structured machine-readable data (for downstream use)
 
+The `--product` / `--country` flow first creates a research-ready scaffold
+(`engagement_en.json`, `engagement_ar.json`, or `engagement_fr.json`). Claude
+must complete the live-research phase and replace scaffold fields with cited,
+triangulated evidence before client delivery.
+
+If a fully researched engagement file already exists, render it directly:
+
+```bash
+python scripts/generate_report.py \
+  --data examples/sample_engagement.json \
+  --language en \
+  --output ./output/
+```
+
 The script handles:
 - Language switching (en/ar/fr) including RTL for Arabic
 - Chart rendering (bar, line, pie, comparison)
@@ -253,9 +267,10 @@ If a country flag is unavailable (e.g., for a region like "GCC"), use a regional
 | `templates/report_fr.html` | French HTML template (LTR) |
 | `templates/styles.css` | Shared executive-grade CSS |
 | `scripts/generate_report.py` | Main pipeline orchestrator |
-| `scripts/research_collector.py` | Web research helpers |
-| `scripts/chart_generator.py` | Chart.js / matplotlib chart builder |
-| `scripts/html_to_pdf.py` | Playwright/WeasyPrint PDF converter |
+| `scripts/build_engagement.py` | Builds a scaffold from product/country inputs |
+| `scripts/fetch_assets.py` | Optional country flag + divider image fetcher |
+| `scripts/package_release.py` | Builds a clean downloadable ZIP for GitHub releases |
+| `scripts/create_demo_gif.py` | Creates a small release demo GIF |
 | `reference/report_structure.md` | Detailed section breakdown |
 | `reference/data_sources.md` | Authoritative data sources |
 | `reference/quality_standards.md` | Pre-delivery checklist |

@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release-assets:
+    name: Build release assets
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pillow
+          python -m playwright install --with-deps chromium
+
+      - name: Build sample reports
+        run: |
+          mkdir -p dist/sample-reports
+          for lang in en ar fr; do
+            python scripts/generate_report.py \
+              --data examples/sample_engagement.json \
+              --language "$lang" \
+              --output "dist/sample-reports/$lang"
+          done
+
+      - name: Build release ZIP and demo GIF
+        run: |
+          python scripts/package_release.py --version "${GITHUB_REF_NAME}" --output-dir dist
+          python scripts/create_demo_gif.py --output dist/executive-market-research-demo.gif
+          cp dist/sample-reports/en/report_en.pdf dist/sample-report-en.pdf
+          cp dist/sample-reports/ar/report_ar.pdf dist/sample-report-ar.pdf
+          cp dist/sample-reports/fr/report_fr.pdf dist/sample-report-fr.pdf
+          cp dist/sample-reports/en/report_en.html dist/sample-report-en.html
+          cp dist/sample-reports/ar/report_ar.html dist/sample-report-ar.html
+          cp dist/sample-reports/fr/report_fr.html dist/sample-report-fr.html
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/executive-market-research-*.zip
+            dist/executive-market-research-demo.gif
+            dist/sample-report-*.pdf
+            dist/sample-report-*.html

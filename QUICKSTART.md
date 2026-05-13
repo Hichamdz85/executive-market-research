@@ -11,6 +11,9 @@ pip install -r ~/.claude/skills/executive-market-research/requirements.txt
 playwright install chromium
 ```
 
+Or download the latest release ZIP from GitHub Releases and unzip it into
+`~/.claude/skills/executive-market-research`.
+
 ## 2. Run
 
 In Claude Code, Claude Desktop, or via the API:
@@ -24,6 +27,19 @@ For an 8-page Executive Brief instead of the full 35–45 page report:
 ## 3. Get the report
 
 Outputs `report.html` (interactive) and `report.pdf` (print-ready) in `./output/`.
+
+Standalone CLI:
+
+```bash
+python scripts/generate_report.py \
+  --product "HVAC accessories" \
+  --country "Algeria" \
+  --language en \
+  --output ./output/
+```
+
+The standalone command creates a research scaffold plus HTML/PDF output.
+Before sending to a client, replace scaffold fields with cited live research.
 
 For full documentation, methodology, and customisation:
 [README.md](./README.md) - [SKILL.md](./SKILL.md) - [reference/khelifi_research_playbook.md](./reference/khelifi_research_playbook.md)

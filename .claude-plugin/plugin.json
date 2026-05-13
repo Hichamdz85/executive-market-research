@@ -1,7 +1,7 @@
 {
   "$schema": "https://claude.ai/schemas/plugin.json",
   "name": "executive-market-research",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Investor-grade market research reports (full 35-page or 8-page Executive Brief) with triangulated sources, in PDF + HTML, in English/Arabic/French.",
   "author": {
     "name": "Khelifi Consulting",
